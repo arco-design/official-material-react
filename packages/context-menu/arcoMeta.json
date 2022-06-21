@@ -12,7 +12,7 @@
   "author": "yinkaihui",
   "screenshot": "https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/04f755c707064eb89373426095f8387f~tplv-uwbnlip3yd-image.image",
   "package": {
-    "name": "@arco-design/context-menu",
+    "name": "@arco-materials/context-menu",
     "version": "latest",
     "type": "npm",
     "registry": "",

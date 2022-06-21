@@ -1,31 +1,24 @@
-import React, { ReactNode, useContext } from 'react';
-import { Radio, RadioProps } from '@arco-design/web-react';
-import { PropRadioGroupContext } from './context';
+import React, { useContext } from 'react';
+import { Radio } from '@arco-design/web-react';
+import { ProRadioGroupContext } from './context';
+import type { ProRadioProps } from './interface';
 
-/**
- * @title ProRadio
- */
-export interface ProRadioProps extends Omit<RadioProps, 'title'> {
-  title?: ReactNode;
-  maskRender?: (dom: ReactNode, checked: boolean) => ReactNode;
-  type?: 'card';
-}
+const PREFIX_CLS = 'am-pro-radio';
 
 const defaultProps = {
   maskRender: (dom) => dom,
 };
 
 const ProRadio = (props: ProRadioProps, _) => {
-  const context = useContext(PropRadioGroupContext);
+  const context = useContext(ProRadioGroupContext);
   const { title, type: propType, children, maskRender: propMaskRender, ...rest } = props;
-  const prefixCls = 'arco-pro-radio';
   const type = propType || context.type;
   const maskRender = propMaskRender || context.maskRender || defaultProps.maskRender;
 
   return type === 'card' ? (
-    <Radio {...rest} className={[prefixCls].concat(rest.className)}>
+    <Radio {...rest} className={[PREFIX_CLS].concat(rest.className)}>
       {({ checked }) => {
-        const cardPrefixCls = `${prefixCls}-card`;
+        const cardPrefixCls = `${PREFIX_CLS}-card`;
 
         const classnames = [
           `${cardPrefixCls}`,
@@ -56,7 +49,7 @@ const ProRadio = (props: ProRadioProps, _) => {
       }}
     </Radio>
   ) : (
-    <Radio {...rest} className={[prefixCls].concat(rest.className)}>
+    <Radio {...rest} className={[PREFIX_CLS].concat(rest.className)}>
       {children}
     </Radio>
   );

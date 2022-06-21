@@ -1,47 +1,11 @@
-import React, { CSSProperties, useRef, useState, useEffect, ReactElement } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import shuffle from 'lodash.shuffle';
 import cs from 'classnames';
-import AnimateItem from './animateItem';
 
-/**
- * @title AnimateWall
- */
-interface AnimateWallProps {
-  /**
-   * @zh 开始动画的回调，入参是当前开始动画的元素索引
-   */
-  onStart?: (index: number) => void;
-  /**
-   * @zh 动画完成的回调
-   */
-  onComplete?: (index: number) => void;
-  /**
-   * @zh 动画墙的元素数组。传入的是一个组件而不是render后的结果， 最少需要传入 `2` 个元素，一直进行替换
-   */
-  elementList?: ReactElement[];
-  className?: string | string[];
-  style?: CSSProperties;
-  /**
-   * @zh 一个动画的持续时间，单位是秒
-   * @defaultValue 0.5
-   */
-  duration?: number;
-  /**
-   * @zh 两个动画的间隔时间，单位是秒
-   * @defaultValue 4
-   */
-  delay?: number;
-  /**
-   * @zh 渐显/渐隐 动画所生效的最小元素的选择器，例如 如果是svg，实际动画作用在这个 `svg` 下的所有`<path/>`下
-   * @defaultValue path
-   */
-  atomSelector?: string;
-  /**
-   * @zh 这个动画墙所展示的元素个数，默认是 `elementList.length - 1`
-   * @defaultValue elementList.length - 1
-   */
-  count?: number;
-}
+import AnimateItem from './animateItem';
+import type { AnimateWallProps } from './interface';
+
+const PREFIX_CLS = 'am-animate-wall';
 
 // 获得一个打乱的位置数组
 function getReplaceOrderList(len: number) {
@@ -71,8 +35,8 @@ function AnimateWall(props: AnimateWallProps) {
     onComplete,
     count = Math.max(elementList.length - 1, 0),
   } = props;
+
   const allList = elementList.map((_, index) => index);
-  const classNames = cs('products', className);
   const [displayList, setDisplayList] = useState([]);
   const recordRef = useRef<{
     indexOfAll: number;
@@ -132,39 +96,38 @@ function AnimateWall(props: AnimateWallProps) {
   }, []);
 
   return (
-    <div className={classNames} style={style}>
-      <ul className={'products-logo-wall'} style={{ marginTop: 24 }}>
-        {displayList.map((icon, index) => {
-          const CurrentLogo: any = elementList[icon];
-          const animate =
-            !recordRef.current.inAnimation && recordRef.current.animationIcon === icon;
-          return (
-            <li className={'products-logo-wall-item'} key={index}>
-              <AnimateItem
-                duration={duration}
-                delay={delay}
-                atomSelector={atomSelector}
-                content={React.cloneElement(<CurrentLogo />)}
-                animate={animate}
-                className={'products-logo-wall-item-logo'}
-                onStart={() => {
-                  if (icon !== recordRef.current.animationIcon) return;
-                  recordRef.current.inAnimation = true;
-                  onStart && onStart(index);
-                }}
-                onComplete={() => {
-                  if (icon !== recordRef.current.animationIcon) return;
-                  recordRef.current.inAnimation = false;
-                  onAnimationComplete();
-                  onComplete && onComplete(index);
-                }}
-              />
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <ul className={cs(PREFIX_CLS, className)} style={style}>
+      {displayList.map((icon, index) => {
+        const CurrentLogo: any = elementList[icon];
+        const animate = !recordRef.current.inAnimation && recordRef.current.animationIcon === icon;
+        return (
+          <li className={`${PREFIX_CLS}-item`} key={index}>
+            <AnimateItem
+              duration={duration}
+              delay={delay}
+              atomSelector={atomSelector}
+              content={React.cloneElement(<CurrentLogo />)}
+              animate={animate}
+              className={`${PREFIX_CLS}-item-logo`}
+              onStart={() => {
+                if (icon !== recordRef.current.animationIcon) return;
+                recordRef.current.inAnimation = true;
+                onStart && onStart(index);
+              }}
+              onComplete={() => {
+                if (icon !== recordRef.current.animationIcon) return;
+                recordRef.current.inAnimation = false;
+                onAnimationComplete();
+                onComplete && onComplete(index);
+              }}
+            />
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
 export default AnimateWall;
+
+export type { AnimateWallProps };

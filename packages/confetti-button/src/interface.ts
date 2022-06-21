@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 /**
- * @title ConfettiButton
+ * @title ConfettiButtonProps
  */
 export interface ConfettiButtonProps {
   children?: ReactNode;

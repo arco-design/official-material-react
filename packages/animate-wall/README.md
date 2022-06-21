@@ -58,7 +58,7 @@ interface ButtonProps {
 ```markdown
 // TEMPLATE.md
 ---
-file: index
+file: index,interface
 ---
 
 # TooltipButton

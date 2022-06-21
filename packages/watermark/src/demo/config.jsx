@@ -55,7 +55,7 @@ export default () => {
 
   return (
     <>
-      <WaterMark content={'机密！严禁外传！'} {...wmProps}>
+      <WaterMark content="机密！严禁外传！" {...wmProps}>
         <Typography.Paragraph code>{JSON.stringify(wmProps)}</Typography.Paragraph>
         <Form form={formRef} style={{ width: '900px' }}>
           <Form.Item label="文字内容" field="content" initialValue={defaultValue.content}>
@@ -92,20 +92,20 @@ export default () => {
           </Form.Item>
           <Form.Item label="颜色" field="color" initialValue={defaultValue.color}>
             <Radio.Group>
-              <Radio value={'rgba(0,0,0,0.02)'}>极浅</Radio>
-              <Radio value={'rgba(0,0,0,0.08)'}>浅</Radio>
-              <Radio value={'rgba(0,0,0,0.12)'}>正常</Radio>
-              <Radio value={'rgba(0,0,0,0.2)'}>深</Radio>
-              <Radio value={'rgba(0,0,0,0.3)'}>极深</Radio>
+              <Radio value="rgba(0,0,0,0.02)">极浅</Radio>
+              <Radio value="rgba(0,0,0,0.08)">浅</Radio>
+              <Radio value="rgba(0,0,0,0.12)">正常</Radio>
+              <Radio value="rgba(0,0,0,0.2)">深</Radio>
+              <Radio value="rgba(0,0,0,0.3)">极深</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item label="旋转角度" field="rotate" initialValue={defaultValue.rotate}>
             <Radio.Group>
-              <Radio value={'45'}>45度</Radio>
-              <Radio value={'0'}>0度</Radio>
-              <Radio value={'-20'}>-20度</Radio>
-              <Radio value={'-45'}>-45度</Radio>
-              <Radio value={'-90'}>-90度</Radio>
+              <Radio value="45">45度</Radio>
+              <Radio value="0">0度</Radio>
+              <Radio value="-20">-20度</Radio>
+              <Radio value="-45">-45度</Radio>
+              <Radio value="-90">-90度</Radio>
             </Radio.Group>
           </Form.Item>
           <Form.Item label=" ">

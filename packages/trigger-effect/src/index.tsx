@@ -1,31 +1,7 @@
-import React, { useRef, useEffect, cloneElement, ReactNode } from 'react';
+import React, { useRef, useEffect, cloneElement } from 'react';
+import type { TriggerEffectProps } from './interface';
 
-/**
- * @title TriggerEffect
- */
-export interface TriggerEffectProps {
-  children?: ReactNode;
-  /**
-   * @zh 动画的类型
-   * @defaultValue ripple
-   */
-  type?: 'ripple' | 'wave';
-  /**
-   * @zh 触发动画的方式
-   * @defaultValue click
-   */
-  trigger?: 'hover' | 'click';
-  /**
-   * @zh 动画持续的时长
-   * @defaultValue 600
-   */
-  duration?: number;
-  /**
-   * @zh wave 类型的动画配置
-   * @defaultValue {color: '#0288d1'}
-   */
-  waveProps?: { color?: string };
-}
+const PREFIX_CLS = 'am-te';
 
 const TriggerEffect = (props: TriggerEffectProps) => {
   const { children, duration = 600, type = 'ripple', waveProps = {} } = props;
@@ -59,12 +35,12 @@ const TriggerEffect = (props: TriggerEffectProps) => {
     const { clientX, clientY } = e;
     if (!wrapper.current) {
       wrapper.current = document.createElement('span');
-      wrapper.current.setAttribute('class', 'arco-te-ripple-wrapper');
+      wrapper.current.setAttribute('class', `${PREFIX_CLS}-ripple-wrapper`);
       ref.current.appendChild(wrapper.current);
     }
 
     const canvas = document.createElement('span');
-    canvas.setAttribute('class', 'arco-te-ripple');
+    canvas.setAttribute('class', `${PREFIX_CLS}-ripple`);
 
     const { width, height, left, top } = ref.current.getBoundingClientRect();
     const longSide = width >= height ? width : height;
@@ -79,7 +55,7 @@ const TriggerEffect = (props: TriggerEffectProps) => {
 
     wrapper.current.appendChild(canvas);
 
-    canvas.setAttribute('class', 'arco-te-ripple arco-te-ripple-visible');
+    canvas.setAttribute('class', `${PREFIX_CLS}-ripple ${PREFIX_CLS}-ripple-visible`);
 
     setTimeout(() => {
       wrapper.current.removeChild(canvas);
@@ -96,7 +72,7 @@ const TriggerEffect = (props: TriggerEffectProps) => {
     timer.current = null;
 
     const canvas = document.createElement('span');
-    canvas.setAttribute('class', 'arco-te-wave');
+    canvas.setAttribute('class', `${PREFIX_CLS}-wave`);
 
     ref.current.appendChild(canvas);
 
@@ -125,3 +101,5 @@ const TriggerEffect = (props: TriggerEffectProps) => {
 };
 
 export default TriggerEffect;
+
+export type { TriggerEffectProps };

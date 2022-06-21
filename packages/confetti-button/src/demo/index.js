@@ -1,10 +1,10 @@
 /**
  * @file
- * @name 组件名
- * @memberOf 组件类型，例如：数据输入
+ * @name ConfettiButton
+ * @memberOf 通用
  * @description 点击触发五彩纸屑效果。
  * @author PengJiyuan
- * @package @arco-materials/confetti
+ * @package @arco-materials/confetti-button
  */
 
 /**

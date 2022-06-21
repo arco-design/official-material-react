@@ -1,21 +1,21 @@
-import { WaterMarkProps } from './index';
 import { transformToNumber } from './_utils/transform';
 import { isString } from './_utils/is';
 import getPixelRatio from './_utils/getPixelRatio';
+import type { WatermarkProps } from './interface';
 
-type CanvasWMProps = WaterMarkProps & {
+type CanvasWMProps = WatermarkProps & {
   container: HTMLElement;
 };
 
 const defaultGaps = { x: 200, y: 200 };
-const defaultFontStyle: WaterMarkProps['fontStyle'] = {
+const defaultFontStyle: WatermarkProps['fontStyle'] = {
   fontSize: '14px',
   color: 'rgba(0, 0, 0, 0.12)',
   fontFamily: 'sans-serif',
   fontWeight: 'normal',
 };
 
-const commonStyle: string = `
+const commonStyle = `
   width:100%;
   height:100%;
   position:absolute;

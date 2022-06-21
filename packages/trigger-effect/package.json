@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/trigger-effect",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "定制按钮或其他元素 Hover 或 Click 时的动画效果",
   "main": "./lib/index.js",
   "module": "./es/index.js",

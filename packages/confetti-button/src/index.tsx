@@ -1,12 +1,13 @@
 import React, { useRef, ReactNode, ReactElement } from 'react';
 import confetti from 'canvas-confetti';
-import { ConfettiButtonProps } from './interface';
+import type { ConfettiButtonProps } from './interface';
 
 // get element's position relative to root element
 function getElementPosition(element: HTMLElement, root?: ReactNode) {
   if (!root || !element) {
     return { left: 0, width: 0, height: 0, top: 0 };
   }
+
   // safari and chrome
   const bodyScroll = (direction) => document.documentElement[direction] || document.body[direction];
   const pageScrollTop =
@@ -133,3 +134,5 @@ function ConfettiButton(props: ConfettiButtonProps) {
 }
 
 export default ConfettiButton;
+
+export type { ConfettiButtonProps };

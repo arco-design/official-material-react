@@ -6,8 +6,8 @@ module.exports = {
   node: (config) => {
     config = jest.node(config) || config;
     config.moduleNameMapper = {
-      '^@arco-materials/confetti/(.+)$': '<rootDir>/$1',
-      '^@arco-materials/confetti$': '<rootDir>',
+      '^@arco-materials/confetti-button/(.+)$': '<rootDir>/$1',
+      '^@arco-materials/confetti-button$': '<rootDir>',
     };
   },
   /**
@@ -16,8 +16,8 @@ module.exports = {
   client: (config) => {
     config = jest.client(config) || config;
     config.moduleNameMapper = {
-      '^@arco-materials/confetti/(.+)$': '<rootDir>/$1',
-      '^@arco-materials/confetti$': '<rootDir>',
+      '^@arco-materials/confetti-button/(.+)$': '<rootDir>/$1',
+      '^@arco-materials/confetti-button$': '<rootDir>',
     };
   },
 };

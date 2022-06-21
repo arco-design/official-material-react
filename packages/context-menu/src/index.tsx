@@ -1,34 +1,16 @@
-import React, { ReactNode } from 'react';
-import { Divider, Dropdown, DropdownProps, Menu, MenuProps } from '@arco-design/web-react';
+import React from 'react';
+import { Divider, Dropdown, Menu } from '@arco-design/web-react';
+import type { ItemType, ContextMenuProps } from './inferface';
 
-/**
- * @title ContextMenu
- */
-
-export type ItemType =
-  | {
-      text: ReactNode;
-      key: string;
-      type: 'item';
-      children?: ItemType[];
-    }
-  | { type: 'divider' };
-export interface ContextMenuProps extends DropdownProps {
-  children: any;
-  /**
-   * @zh 菜单项
-   */
-  items?: ItemType[];
-  onClickItem?: MenuProps['onClickMenuItem'];
-}
+const PREFIX_CLS = 'am-context-menu';
 
 const ContextMenu = (props: ContextMenuProps) => {
-  const { children, items, onClickItem, ...rest } = props;
+  const { children, items, menuProps, onClickItem, ...rest } = props;
 
   const loopItems = (_items: ItemType[], parentKey) => {
     return _items.map((item, index) => {
       if (item.type === 'divider') {
-        return <Divider className="arco-context-menu-divider" />;
+        return <Divider className={`${PREFIX_CLS}-divider`} />;
       }
       if (item.children && item.children.length) {
         return (
@@ -42,10 +24,11 @@ const ContextMenu = (props: ContextMenuProps) => {
   };
 
   const droplist = (
-    <Menu className="arco-context-menu" onClickMenuItem={onClickItem}>
+    <Menu {...menuProps} onClickMenuItem={onClickItem}>
       {loopItems(items, '')}
     </Menu>
   );
+
   return (
     <Dropdown trigger="contextMenu" droplist={droplist} {...rest}>
       {children}
@@ -54,3 +37,5 @@ const ContextMenu = (props: ContextMenuProps) => {
 };
 
 export default ContextMenu;
+
+export type { ContextMenuProps };

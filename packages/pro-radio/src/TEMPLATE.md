@@ -1,5 +1,5 @@
 ---
-file: index
+file: index,interface
 ---
 
 ## 属性/Props

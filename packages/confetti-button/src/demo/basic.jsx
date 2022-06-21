@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@arco-design/web-react';
 import { IconThumbUp } from '@arco-design/web-react/icon';
-import ArcoConfetti from '@arco-materials/confetti';
+import ArcoConfetti from '@arco-materials/confetti-button';
 
 const wrapperStyle = {
   height: 300,

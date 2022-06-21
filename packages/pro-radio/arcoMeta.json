@@ -10,7 +10,7 @@
   "author": "yinkaihui",
   "screenshot": "",
   "package": {
-    "name": "arco-pro-radio",
+    "name": "@arco-materials/pro-radio",
     "version": "latest",
     "type": "npm",
     "registry": "",

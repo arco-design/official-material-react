@@ -1,9 +1,9 @@
 /**
  * @file
- * @name 组件名
- * @memberOf 组件类型，例如：数据输入
- * @description 描述你的组件。
- * @author 物料作者
+ * @name TriggerEffect
+ * @memberOf 通用
+ * @description 定制按钮或其他元素 Hover 或 Click 时的动画效果。
+ * @author PengJiyuan
  * @package @arco-materials/trigger-effect
  */
 

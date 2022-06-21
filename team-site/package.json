@@ -1,0 +1,17 @@
+{
+  "name": "@arco-materials/material-team-site",
+  "version": "0.0.1",
+  "description": "Project for Arco Material Team Site",
+  "scripts": {
+    "dev": "arco-doc-site dev",
+    "build": "arco-doc-site build",
+    "preview": "arco preview --teamSite --path \"/dist&arcoVersion=latest\""
+  },
+  "devDependencies": {
+    "arco-material-doc-site": "^1.9.3"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ]
+}

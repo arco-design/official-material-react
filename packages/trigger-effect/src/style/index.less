@@ -1,27 +1,45 @@
-.arco-te-ripple-wrapper {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  overflow: hidden;
-}
+@trigger-effect-prefix-cls: ~'am-te';
 
-.arco-te-ripple {
-  position: absolute;
-  animation-name: te-ripple;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  background: currentColor;
-  border-radius: 50%;
-  opacity: 0;
+.@{trigger-effect-prefix-cls} {
+  &-ripple-wrapper {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-  &-visible {
-    opacity: 0.3;
-    transform: scale(1);
+  &-ripple {
+    position: absolute;
+    animation-name: am-te-ripple;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    background: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+
+    &-visible {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+  }
+
+  &-wave {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    overflow: hidden;
+    outline-width: 6px;
+    outline-style: solid;
+    animation-name: am-te-wave;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
   }
 }
 
-@keyframes te-ripple {
+@keyframes am-te-ripple {
   0% {
     transform: scale(0);
     opacity: 0.3;
@@ -33,21 +51,7 @@
   }
 }
 
-.arco-te-wave {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  overflow: hidden;
-  outline-width: 6px;
-  outline-style: solid;
-  animation-name: te-wave;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-}
-
-@keyframes te-wave {
+@keyframes am-te-wave {
   0% {
     outline-width: 1px;
     opacity: 0.6;

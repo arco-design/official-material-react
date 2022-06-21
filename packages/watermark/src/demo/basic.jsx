@@ -38,20 +38,8 @@ const node = (
 
 export default () => {
   return (
-    <div>
-      <WaterMarket
-        content="机密！严禁外传！"
-        style={{ borderBottom: '1px solid rgba(0,0,0,0.15)' }}
-      >
-        {node}
-      </WaterMarket>
-      <WaterMarket
-        image="https://raw.githubusercontent.com/yuhan0709/blog/7fede48cd490d27e857b00f94584c10083cc7370/src/assets/watermark.svg"
-        width={115}
-        height={18}
-      >
-        {node}
-      </WaterMarket>
-    </div>
+    <WaterMarket content="机密！严禁外传！" style={{ borderBottom: '1px solid rgba(0,0,0,0.15)' }}>
+      {node}
+    </WaterMarket>
   );
 };

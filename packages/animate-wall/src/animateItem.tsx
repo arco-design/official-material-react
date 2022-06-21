@@ -22,7 +22,7 @@ function animationOut(target, { duration, delay }, config: gsap.TweenVars = {}):
     animationDuration: duration,
     opacity: 0,
     ease: 'power1.inOut',
-    delay: delay,
+    delay,
     stagger: {
       amount: duration,
       from: 'random',

@@ -1,31 +1,14 @@
-import React, { ReactNode } from 'react';
-import { Radio, RadioGroupProps } from '@arco-design/web-react';
+import React from 'react';
+import { Radio } from '@arco-design/web-react';
 import ProRadio from './radio';
-import { PropRadioGroupContext } from './context';
-
-/**
- * @title ProRadio.Group
- */
-export interface ProRadioGroupProps extends Omit<RadioGroupProps, 'type' | 'options'> {
-  maskRender?: (dom: ReactNode, checked: boolean) => ReactNode;
-  type?: 'card' | 'radio' | 'button';
-  children?: ReactNode;
-  options?: (
-    | RadioGroupProps['options'][number]
-    | {
-        label: React.ReactNode;
-        title: React.ReactNode;
-        value: any;
-        disabled?: boolean;
-      }
-  )[];
-}
+import { ProRadioGroupContext } from './context';
+import type { ProRadioGroupProps } from './interface';
 
 const ProRadioGroup = (props: ProRadioGroupProps) => {
   const { options, type, maskRender, ...rest } = props;
 
   return (
-    <PropRadioGroupContext.Provider value={{ maskRender, type }}>
+    <ProRadioGroupContext.Provider value={{ maskRender, type }}>
       <Radio.Group {...rest}>
         {options
           ? options.map((option) => {
@@ -42,7 +25,7 @@ const ProRadioGroup = (props: ProRadioGroupProps) => {
             })
           : rest.children}
       </Radio.Group>
-    </PropRadioGroupContext.Provider>
+    </ProRadioGroupContext.Provider>
   );
 };
 

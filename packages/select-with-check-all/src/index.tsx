@@ -220,4 +220,4 @@ SelectWithCheckAll.displayName = 'SelectWithCheckAll';
 
 export default SelectWithCheckAll;
 
-export { SelectWithCheckAllProps };
+export type { SelectWithCheckAllProps };
