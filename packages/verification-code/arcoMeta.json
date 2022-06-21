@@ -1,0 +1,23 @@
+{
+  "name": "@arco-materials/verification-code",
+  "title": "常用验证码",
+  "description": "包含输入验证码、滑块验证码（暂未发布）",
+  "type": "react-component",
+  "category": [],
+  "group": 0,
+  "homepage": "",
+  "repository": "",
+  "author": "yuhan0709",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/verification-code",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "@arco-design/web-react",
+      "react",
+      "react-dom"
+    ]
+  }
+}

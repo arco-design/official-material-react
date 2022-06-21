@@ -1,0 +1,101 @@
+@pro-radio-prefix: arco-pro-radio;
+
+.@{pro-radio-prefix} {
+  box-sizing: border-box;
+
+  &-card {
+    padding: 10px 16px;
+    border: 1px solid var(--color-border-2);
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+
+    &-mask-wrapper {
+      margin-right: 8px;
+    }
+
+    &-mask {
+      height: 14px;
+      width: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      border: 1px solid var(--color-border-2);
+      box-sizing: border-box;
+      vertical-align: 1px;
+    }
+
+    &-mask-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 100%;
+    }
+
+    &-checked {
+      background-color: var(--color-primary-light-1);
+    }
+
+    &-checked &-mask-dot {
+      background-color: rgb(var(--primary-6));
+    }
+
+    &:hover,
+    &-checked {
+      border-color: rgb(var(--primary-6));
+      .@{pro-radio-prefix}-card-mask {
+        border-color: rgb(var(--primary-6));
+      }
+      .@{pro-radio-prefix}-card-title {
+        color: rgb(var(--primary-6));
+      }
+    }
+
+    &-disabled,
+    &-disabled:hover {
+      border-color: var(--color-border-1);
+
+      .@{pro-radio-prefix}-card-mask {
+        border-color: var(--color-border-1);
+      }
+
+      .@{pro-radio-prefix}-card-title,
+      .@{pro-radio-prefix}-card-content {
+        color: var(--color-text-4);
+      }
+    }
+
+    &-checked&-disabled {
+      border-color: var(--color-primary-light-3);
+      background: transparent;
+
+      .@{pro-radio-prefix}-card-mask {
+        border-color: var(--color-primary-light-3);
+      }
+
+      .@{pro-radio-prefix}-card-mask-dot {
+        background-color: var(--color-primary-light-3);
+      }
+
+      .@{pro-radio-prefix}-card-title {
+        color: var(--color-primary-light-3);
+      }
+    }
+  }
+
+  &-card-title {
+    color: var(--color-text-2);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  &-card-title + &-card-content {
+    margin-top: 4px;
+  }
+
+  &-card-content {
+    color: var(--color-text-3);
+    font-size: 12px;
+  }
+}

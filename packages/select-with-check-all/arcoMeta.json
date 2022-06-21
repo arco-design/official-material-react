@@ -1,0 +1,27 @@
+{
+  "name": "@arco-materials/select-with-check-all",
+  "title": "Select with check-all",
+  "description": "Arco Select component with check-all, check-group.",
+  "type": "react-component",
+  "category": [
+    "表单",
+    "筛选",
+    "弹出框"
+  ],
+  "group": 0,
+  "homepage": "",
+  "repository": "https://github.com/MisterLuffy/arco-select-plus",
+  "author": "MisterLuffy",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/select-with-check-all",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "react",
+      "react-dom",
+      "@arco-design/web-react"
+    ]
+  }
+}

@@ -17,7 +17,7 @@
   dependencies:
     color "^3.1.3"
 
-"@arco-design/web-react@^2.4.0":
+"@arco-design/web-react@^2.34.0", "@arco-design/web-react@^2.4.0":
   version "2.35.1"
   resolved "http://bnpm.byted.org/@arco-design/web-react/-/web-react-2.35.1.tgz#e0759e191fc25ddf430774c82b5783a78f2467ab"
   integrity sha512-ttBekbMhpp//SvgbP2IGfPD99zjZ2TXHqJftdQD5nMYSniLtSADP6dIJI95PfEvSHUAvplCHUXNwNAh6A/v1ZQ==
@@ -4465,7 +4465,7 @@ archy@^1.0.0:
   resolved "http://bnpm.byted.org/archy/-/archy-1.0.0.tgz#f9c8c13757cc1dd7bc379ac77b2c62a5c2868c40"
   integrity sha512-Xg+9RwCg/0p32teKdGMPTPnVXKD0w3DfHnFTficozsAgsvq2XenPJq/MYpzzQ/v8zrOyJn6Ds39VA4JIDwFfqw==
 
-arco-cli-dev-utils@^1.1.1:
+arco-cli-dev-utils@^1.0.0, arco-cli-dev-utils@^1.1.1:
   version "1.2.0"
   resolved "http://bnpm.byted.org/arco-cli-dev-utils/-/arco-cli-dev-utils-1.2.0.tgz#18c825dc4b7f51add81351a652ac8b426838b148"
   integrity sha512-Tb7sKmBW6NiCVPbxcawmaA/V7B1WunDNfTtiNkloO7TiPtxs01gTHmsum81CumHAVPZEzFiIJBDWLf1C3N0A5A==
@@ -5794,6 +5794,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000864, can
   resolved "http://bnpm.byted.org/caniuse-lite/-/caniuse-lite-1.0.30001356.tgz#cbf5fe7b33f90962bfbca532212ea478d4ec9de8"
   integrity sha512-/30854bktMLhxtjieIxsrJBfs2gTM1pel6MXKF3K+RdIVJZcsn2A2QdhsuR4/p9+R204fZw0zCBBhktX8xWuyQ==
 
+canvas-confetti@^1.4.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/canvas-confetti/-/canvas-confetti-1.5.1.tgz#bf5b8622ef3bcd347378a972fc4194a89cfe0c9b"
+  integrity sha512-Ncz+oZJP6OvY7ti4E1slxVlyAV/3g7H7oQtcCDXgwGgARxPnwYY9PW5Oe+I8uvspYNtuHviAdgA0LfcKFWJfpg==
+
 capture-exit@^2.0.0:
   version "2.0.0"
   resolved "http://bnpm.byted.org/capture-exit/-/capture-exit-2.0.0.tgz#fb953bfaebeb781f62898239dabb426d08a509a4"
@@ -5984,6 +5989,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
+  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
 
 clean-css@4.2.3:
   version "4.2.3"
@@ -9587,6 +9597,11 @@ growly@^1.3.0:
   resolved "http://bnpm.byted.org/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha512-+xGQY0YyAWCnqy7Cd++hc2JqMYzlm0dG30Jd0beaA64sROr8C4nt8Yc9V5Ro3avlSUDTN0ulqP/VBKi1/lLygw==
 
+gsap@^3.9.1:
+  version "3.10.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.10.4.tgz#db89a6b8f6d5cb76e274eae822cbc1aa4d31e88f"
+  integrity sha512-6QatdkKxXCMfvCW4rM++0RqyLQAzFX5nwl3yHS0XPgkZBkiSEY3VZVbMltrdtsbER/xZonLtyHt684wRp4erlQ==
+
 gulp-clean-css@^4.3.0:
   version "4.3.0"
   resolved "http://bnpm.byted.org/gulp-clean-css/-/gulp-clean-css-4.3.0.tgz#5b1e73f2fca46703eb636014cdd4553cea65146d"
@@ -12258,10 +12273,20 @@ lodash.merge@^4.6.2:
   resolved "http://bnpm.byted.org/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
+  integrity sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==
+
 lodash.set@^4.3.2:
   version "4.3.2"
   resolved "http://bnpm.byted.org/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
   integrity sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg==
+
+lodash.shuffle@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.shuffle/-/lodash.shuffle-4.2.0.tgz#145b5053cf875f6f5c2a33f48b6e9948c6ec7b4b"
+  integrity sha512-V/rTAABKLFjoecTZjKSv+A1ZomG8hZg8hlgeG6wwQVD9AGv+10zqqSf6mFq2tVA703Zd5R0YhSuSlXA+E/Ei+Q==
 
 lodash.sortby@^4.7.0:
   version "4.7.0"

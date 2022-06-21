@@ -1,0 +1,26 @@
+{
+  "name": "@arco-materials/trigger-effect",
+  "title": "Trigger Effect",
+  "description": "定制按钮或其他元素 Hover 或 Click 时的动画效果",
+  "type": "react-component",
+  "category": [
+    "信息展示"
+  ],
+  "group": 0,
+  "homepage": "",
+  "repository": "https://github.com/PengJiyuan/arco-materials",
+  "author": "PengJiyuan",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/trigger-effect",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "react",
+      "react-dom",
+      "@arco-design/web-react"
+    ]
+  },
+  "metaUpdateTime": 1642492459510
+}

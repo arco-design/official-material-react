@@ -1,0 +1,63 @@
+.verify-input-code {
+  &-input {
+    margin: 0 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+
+    &-mini {
+      width: 24px;
+    }
+
+    &-small {
+      width: 28px;
+    }
+
+    &-default {
+      width: 32px;
+    }
+
+    &-large {
+      width: 36px;
+    }
+  }
+
+  &-suffix {
+    width: 32px;
+    height: 32px;
+    color: var(--color-text-1);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-fill-2);
+    box-sizing: border-box;
+    font-size: 12px;
+    text-align: center;
+    line-height: 32px;
+    display: inline-block;
+    cursor: pointer;
+    border-right: 1px solid var(--color-neutral-3);
+  }
+
+  &-suffix:last-child {
+    border-right: none;
+  }
+
+  &-password {
+    .arco-input-group-suffix {
+      display: none;
+    }
+
+    .arco-input-group-wrapper {
+      vertical-align: middle;
+      margin: 0;
+    }
+
+    .arco-input-inner-wrapper {
+      padding-left: 2px;
+      padding-right: 2px;
+
+      > input {
+        text-align: center;
+      }
+    }
+  }
+}
