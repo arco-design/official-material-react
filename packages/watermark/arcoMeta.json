@@ -4,9 +4,9 @@
   "description": "可给某个区域加上水印表示版权等",
   "type": "react-component",
   "category": [],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "https://github.com/yuhan0709/yuhan-materials/tree/main/packages/watermark",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "yuhan0709",
   "screenshot": "http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/ffd5207b0d6f9d0d3643ca8c56164a22.png~tplv-uwbnlip3yd-image.image",
   "package": {
@@ -18,6 +18,5 @@
       "react",
       "react-dom"
     ]
-  },
-  "metaUpdateTime": 1645525150646
+  }
 }

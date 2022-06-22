@@ -6,9 +6,9 @@
   "category": [
     "信息展示"
   ],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "https://github.com/PengJiyuan/arco-materials",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "PengJiyuan",
   "screenshot": "",
   "package": {
@@ -17,10 +17,9 @@
     "type": "npm",
     "registry": "",
     "peerDependencies": [
+      "@arco-design/web-react",
       "react",
-      "react-dom",
-      "@arco-design/web-react"
+      "react-dom"
     ]
-  },
-  "metaUpdateTime": 1642492459510
+  }
 }

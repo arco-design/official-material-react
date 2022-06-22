@@ -4,9 +4,9 @@
   "description": "arco 官网动态出现隐藏图标墙",
   "type": "react-component",
   "category": [],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "https://github.com/yuhan0709/yuhan-materials/tree/main/packages/animate-wall",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "yuhan0709",
   "screenshot": "http://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6af1781288cb386d025ccf40533d1b81.gif~tplv-uwbnlip3yd-image.image",
   "package": {
@@ -14,6 +14,10 @@
     "version": "latest",
     "type": "npm",
     "registry": "",
-    "peerDependencies": ["@arco-design/web-react", "react", "react-dom"]
+    "peerDependencies": [
+      "@arco-design/web-react",
+      "react",
+      "react-dom"
+    ]
   }
 }

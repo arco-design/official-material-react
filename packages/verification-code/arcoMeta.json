@@ -4,9 +4,9 @@
   "description": "包含输入验证码、滑块验证码（暂未发布）",
   "type": "react-component",
   "category": [],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "yuhan0709",
   "screenshot": "",
   "package": {

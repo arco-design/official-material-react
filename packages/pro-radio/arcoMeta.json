@@ -4,9 +4,9 @@
   "description": "",
   "type": "react-component",
   "category": [],
-  "group": 11,
+  "group": 1,
   "homepage": "",
-  "repository": "",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "yinkaihui",
   "screenshot": "",
   "package": {
@@ -15,10 +15,9 @@
     "type": "npm",
     "registry": "",
     "peerDependencies": [
+      "@arco-design/web-react",
       "react",
-      "react-dom",
-      "@arco-design/web-react"
+      "react-dom"
     ]
-  },
-  "metaUpdateTime": 1649410673588
+  }
 }

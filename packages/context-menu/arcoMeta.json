@@ -6,9 +6,9 @@
   "category": [
     "弹出框"
   ],
-  "group": 11,
+  "group": 1,
   "homepage": "",
-  "repository": "",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "yinkaihui",
   "screenshot": "https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/04f755c707064eb89373426095f8387f~tplv-uwbnlip3yd-image.image",
   "package": {
@@ -17,9 +17,9 @@
     "type": "npm",
     "registry": "",
     "peerDependencies": [
+      "@arco-design/web-react",
       "react",
-      "react-dom",
-      "@arco-design/web-react"
+      "react-dom"
     ]
   }
 }

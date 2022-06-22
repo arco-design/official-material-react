@@ -8,9 +8,9 @@
     "筛选",
     "弹出框"
   ],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "https://github.com/MisterLuffy/arco-select-plus",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "MisterLuffy",
   "screenshot": "",
   "package": {
@@ -19,9 +19,9 @@
     "type": "npm",
     "registry": "",
     "peerDependencies": [
+      "@arco-design/web-react",
       "react",
-      "react-dom",
-      "@arco-design/web-react"
+      "react-dom"
     ]
   }
 }

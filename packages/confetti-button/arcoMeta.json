@@ -6,9 +6,9 @@
   "category": [
     "数据展示"
   ],
-  "group": 0,
+  "group": 1,
   "homepage": "",
-  "repository": "https://github.com/PengJiyuan/arco-materials",
+  "repository": "https://github.com/arco-design/official-material-react",
   "author": "PengJiyuan",
   "screenshot": "https://p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6602bf2364fe4af6a9b68274290aa997~tplv-uwbnlip3yd-image.image",
   "package": {
@@ -20,6 +20,5 @@
       "react",
       "react-dom"
     ]
-  },
-  "metaUpdateTime": 1639403794772
+  }
 }
