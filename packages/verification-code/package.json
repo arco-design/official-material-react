@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/verification-code",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "包含输入验证码、滑块验证码",
   "main": "./lib/index.js",
   "module": "./es/index.js",
