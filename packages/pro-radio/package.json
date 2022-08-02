@@ -8,7 +8,7 @@
   "umd": {
     "file": "./dist/index.min.js",
     "module": "arcoMaterial",
-    "style": "./dist/css/index.css"
+    "style": "./dist/style/index.css"
   },
   "scripts": {
     "dev": "arco-scripts dev:component",
