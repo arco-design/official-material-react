@@ -1,0 +1,72 @@
+@doc-search-prefix-cls: ~'am-doc-search';
+
+.@{doc-search-prefix-cls} {
+  &-popup {
+    .arco-select-group-title,
+    .arco-select-highlight {
+      font-weight: 500;
+      color: rgb(var(--primary-6));
+    }
+
+    .arco-select-option {
+      padding-left: 40px;
+
+      .bg-icon() {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 12px;
+        opacity: 0.25;
+      }
+
+      &::before {
+        .bg-icon();
+
+        content: '#';
+        left: 12px;
+        padding-left: 12px;
+        background-position: left, center;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 54' class='arco-home-doc-item-icon-line-1lFMv'%3E%3Cpath d='M8 6v42m12-21H8.3' stroke='currentColor' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+      }
+
+      &-hover {
+        padding-right: 32px;
+
+        &::after {
+          .bg-icon();
+
+          right: 12px;
+          background-position: right, center;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='12' fill='none'%3E%3Cpath d='M1.76 8l3.333 3.136a.5.5 0 11-.686.728l-4.25-4a.5.5 0 010-.728l4.25-4a.5.5 0 01.686.728L1.76 7H13a2 2 0 002-2V.5a.5.5 0 011 0V5a3 3 0 01-3 3H1.76z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E");
+        }
+      }
+    }
+
+    .@{doc-search-prefix-cls} {
+      &-option-tail::before {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 54' class='arco-home-doc-item-icon-line-1lFMv'%3E%3Cpath d='M8 6v21m12 0H8.3' stroke='currentColor' fill='none' fill-rule='evenodd' stroke-linecap='round' stroke-linejoin='round'%3E%3C/path%3E%3C/svg%3E");
+      }
+
+      &-no-result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 0;
+        font-size: 14px;
+        color: var(--color-text-2);
+
+        p {
+          margin-top: 6px;
+        }
+
+        .arco-icon {
+          font-size: 3em;
+        }
+      }
+    }
+  }
+}

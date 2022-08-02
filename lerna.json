@@ -1,5 +1,9 @@
 {
   "version": "independent",
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "ignoreChanges": [
+    "**/arcoMeta.json",
+    "**/README.md"
+  ]
 }
