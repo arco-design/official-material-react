@@ -1,0 +1,23 @@
+{
+  "name": "@arco-materials/doc-search",
+  "title": "Document search box",
+  "description": "文档搜索框",
+  "type": "react-component",
+  "category": [],
+  "group": 1,
+  "homepage": "",
+  "repository": "",
+  "author": "MisterLuffy",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/doc-search",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "@arco-design/web-react",
+      "react",
+      "react-dom"
+    ]
+  }
+}
