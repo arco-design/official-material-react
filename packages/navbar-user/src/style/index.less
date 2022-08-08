@@ -1,0 +1,34 @@
+@navbar-user-prefix-cls: ~'am-navbar-user';
+
+.@{navbar-user-prefix-cls} {
+  &-menu {
+    width: 180px;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      padding: 12px;
+      font-size: 14px;
+      color: var(--color-text-2);
+
+      .arco-avatar {
+        flex-shrink: 0;
+        margin-right: 12px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      &-username {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .arco-divider {
+      margin: 4px 0;
+    }
+  }
+}
