@@ -75,7 +75,7 @@ const NavbarUser = (props: NavbarUserProps) => {
       }
       {...dropdownProps}
     >
-      {avatarUrl ? eleAvatar : name}
+      {eleAvatar}
     </Dropdown>
   );
 };
