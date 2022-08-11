@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/navbar-user",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "用于导航栏展示的用户下拉菜单",
   "main": "./lib/index.js",
   "module": "./es/index.js",
