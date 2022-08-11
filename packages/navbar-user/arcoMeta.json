@@ -1,0 +1,26 @@
+{
+  "name": "@arco-materials/navbar-user",
+  "title": "导航栏用户菜单",
+  "description": "用于导航栏展示的用户下拉菜单",
+  "type": "react-component",
+  "category": [
+    "信息展示",
+    "弹出框"
+  ],
+  "group": 1,
+  "homepage": "",
+  "repository": "",
+  "author": "MisterLuffy",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/navbar-user",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "@arco-design/web-react",
+      "react",
+      "react-dom"
+    ]
+  }
+}
