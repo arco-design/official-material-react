@@ -3,8 +3,6 @@ import { TableColumnProps } from '@arco-design/web-react';
 import React, { CSSProperties, ReactNode, useState } from 'react';
 import { Resizable, ResizableProps, ResizeCallbackData } from 'react-resizable';
 
-import './style/index.less';
-
 /**
  * @title ResizeTableTitle
  */
@@ -31,11 +29,12 @@ const ResizeTableTitle: ReactNode = (props: ResizeTableTitleProps) => {
 
   return (
     <Resizable
+      className="am-react-resizable"
       width={width}
       height={0}
       handle={(resizeHandle) => (
         <span
-          className={`react-resizable-handle react-resizable-handle-${resizeHandle}`}
+          className={`am-react-resizable-handle am-react-resizable-handle-${resizeHandle}`}
           onClick={(e) => {
             e.stopPropagation();
           }}
