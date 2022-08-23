@@ -22,7 +22,6 @@ const originColumns: TableColumnProps[] = [
   {
     title: 'Email',
     dataIndex: 'email',
-    width: 180,
   },
 ];
 const data = [

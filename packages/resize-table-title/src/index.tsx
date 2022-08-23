@@ -64,20 +64,18 @@ export const resizeCols = (originColumns: TableColumnProps[]) => {
             onResize: handleResize(index),
           }),
         };
-      } else {
-        return column;
       }
+      return column;
     })
   );
 
   const handleResize = (index: number) => {
     return (_: React.SyntheticEvent, { size }: ResizeCallbackData) => {
-      const nextColumns = [...columns];
-      nextColumns[index] = {
-        ...nextColumns[index],
-        width: size.width,
-      };
-      setColumns(nextColumns);
+      setColumns((prevColumns) => {
+        const nextColumns = [...prevColumns];
+        nextColumns[index] = { ...nextColumns[index], width: size.width };
+        return nextColumns;
+      });
     };
   };
 
