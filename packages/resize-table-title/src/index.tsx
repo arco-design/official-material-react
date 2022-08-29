@@ -6,7 +6,7 @@ import { Resizable, ResizableProps, ResizeCallbackData } from 'react-resizable';
 /**
  * @title ResizeTableTitle
  */
-export interface ResizeTableTitleProps extends ResizableProps {
+export type ResizeTableTitleProps = ResizableProps & {
   /**
    * @zh Arco Column的定位属性，固定头和列到左边或者右边
    * @defaultValue -
@@ -19,7 +19,7 @@ export interface ResizeTableTitleProps extends ResizableProps {
    * @version 1.0.0
    */
   style?: CSSProperties;
-}
+};
 
 const ResizeTableTitle: ReactNode = (props: ResizeTableTitleProps) => {
   const { onResize, fixed, width, ...restProps } = props;

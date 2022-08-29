@@ -1,9 +1,9 @@
 /**
  * @file
- * @name Table表头拖动
+ * @title ResizeTableTitle
  * @memberOf 表格
- * @description 用于拖动table表头
- * @author ducheng
+ * @description 用于拖动 Table 表头。
+ * @author gitducheng
  * @package @arco-materials/resize-table-title
  */
 

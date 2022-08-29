@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/material-team-site",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Project for Arco Material Team Site",
   "scripts": {
     "dev": "arco-doc-site dev",

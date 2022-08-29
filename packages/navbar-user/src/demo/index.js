@@ -1,9 +1,9 @@
 /**
  * @file
- * @title 组件名
- * @memberOf 组件类型，例如：数据输入
- * @description 描述你的组件。
- * @author 物料作者
+ * @title NavbarUser
+ * @memberOf 信息展示
+ * @description 常见于导航栏的用户信息下拉框。
+ * @author MisterLuffy
  * @package @arco-materials/navbar-user
  */
 

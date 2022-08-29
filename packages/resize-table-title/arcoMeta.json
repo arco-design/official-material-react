@@ -1,0 +1,23 @@
+{
+  "name": "@arco-materials/resize-table-title",
+  "title": "可拖拽的 Table 表头",
+  "description": "拖动改变 Table 表头宽度",
+  "type": "react-component",
+  "category": [],
+  "group": 1,
+  "homepage": "",
+  "repository": "",
+  "author": "gitducheng",
+  "screenshot": "",
+  "package": {
+    "name": "@arco-materials/resize-table-title",
+    "version": "latest",
+    "type": "npm",
+    "registry": "",
+    "peerDependencies": [
+      "@arco-design/web-react",
+      "react",
+      "react-dom"
+    ]
+  }
+}
