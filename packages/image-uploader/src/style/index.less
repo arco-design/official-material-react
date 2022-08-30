@@ -1,0 +1,104 @@
+@import '~cropperjs/dist/cropper.css';
+
+@image-uploader-prefix-cls: ~'am-image-uploader';
+
+.@{image-uploader-prefix-cls} {
+  > * {
+    box-sizing: border-box;
+  }
+
+  &-modal-preview {
+    width: 480px;
+
+    &-img {
+      width: 100%;
+    }
+  }
+
+  &-modal-cropper {
+    width: auto;
+
+    .arco-modal-content {
+      display: flex;
+      padding: 0;
+    }
+
+    &-main {
+      width: 516px;
+      padding: 24px 20px 0 20px;
+      background-color: var(--color-fill-1);
+    }
+
+    .@{image-uploader-prefix-cls}-indicator {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 11px 0;
+
+      &-item {
+        width: 72px;
+        height: 72px;
+        margin-right: 7px;
+        border-radius: 2px;
+        background-color: var(--color-fill-2);
+        overflow: hidden;
+
+        &-active {
+          box-shadow: 0 0 0 2px rgb(var(--primary-6)) inset;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &-cropper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .cropper-container {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    &-operation {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 28px 0;
+      font-size: 12px;
+
+      .arco-icon {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+
+      &-scale {
+        display: flex;
+        align-items: center;
+        flex: 1;
+
+        .arco-slider {
+          margin: 0 10px;
+        }
+      }
+
+      &-scale,
+      &-rotate {
+        margin-left: 100px;
+      }
+
+      &-reset,
+      &-rotate {
+        cursor: pointer;
+      }
+    }
+  }
+}
