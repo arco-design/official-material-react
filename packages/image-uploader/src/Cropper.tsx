@@ -22,7 +22,7 @@ interface CropperProps
 }
 
 export type CropperHandle = {
-  getCroppedImage: (type: 'dataURL' | 'file') => string | File;
+  getCroppedImage: () => string;
 };
 
 function Cropper(props: CropperProps, ref) {
@@ -65,26 +65,8 @@ function Cropper(props: CropperProps, ref) {
     refCropperInstance.current?.scale(scale);
   }, [scale]);
 
-  const getCroppedImage: CropperHandle['getCroppedImage'] = (type) => {
-    if (!refCropperInstance.current) {
-      return;
-    }
-
-    const dataURL = refCropperInstance.current.getCroppedCanvas().toDataURL(imageType, quality);
-
-    if (type === 'dataURL') {
-      return dataURL;
-    }
-
-    const binary = atob(dataURL.split(',')[1]);
-    const array = [];
-    for (let i = 0; i < binary.length; i++) {
-      array.push(binary.charCodeAt(i));
-    }
-    const fileBlob = new Blob([new Uint8Array(array)], { type: imageType });
-    return new File([fileBlob], 'croppedimage', {
-      type: imageType || 'image/*',
-    });
+  const getCroppedImage: CropperHandle['getCroppedImage'] = () => {
+    return refCropperInstance.current?.getCroppedCanvas().toDataURL(imageType, quality);
   };
 
   useImperativeHandle<unknown, CropperHandle>(
@@ -106,7 +88,7 @@ function Cropper(props: CropperProps, ref) {
         src={image}
         ref={refCropperFactory}
         ready={() => (refCropperInstance.current = (refCropperFactory.current as any).cropper)}
-        crop={() => onCrop?.(getCroppedImage('dataURL') as string)}
+        crop={() => onCrop?.(getCroppedImage())}
         style={{ height: 340 }}
         {...cropperProps}
       />
