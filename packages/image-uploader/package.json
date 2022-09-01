@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/image-uploader",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "附带有裁剪功能的图片上传组件",
   "main": "./lib/index.js",
   "module": "./es/index.js",
