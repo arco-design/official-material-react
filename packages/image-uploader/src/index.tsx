@@ -150,11 +150,10 @@ function ImageUploader(props: ImageUploaderProps, ref) {
           refUpload.current = ref;
         }}
         autoUpload={false}
-        accept={accept}
         listType="picture-card"
+        accept={accept}
         action={action}
         fileList={fileList}
-        onChange={setFileList}
         onPreview={(file) => {
           Modal.info({
             className: `${prefixCls}-modal-preview`,
@@ -170,6 +169,10 @@ function ImageUploader(props: ImageUploaderProps, ref) {
           });
         }}
         {...rest}
+        onChange={(fileList, file) => {
+          setFileList(fileList);
+          rest.onChange?.(fileList, file);
+        }}
       />
     </div>
   );

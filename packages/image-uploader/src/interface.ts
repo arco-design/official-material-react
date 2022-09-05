@@ -12,7 +12,7 @@ export interface ImageUploaderProps extends UploadProps {
    * @en Uploading url
    * @defaultValue '/'
    */
-  action: string;
+  action?: string;
   /**
    * @zh 接受文件类型
    * @en type of accept file
