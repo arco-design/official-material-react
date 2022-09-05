@@ -105,22 +105,25 @@ function ImageUploader(props: ImageUploaderProps, ref) {
         {imagesToCrop.length ? (
           <>
             <div className={`${prefixCls}-modal-cropper-main`}>
-              <ol className={`${prefixCls}-indicator`}>
-                {imagesToCrop.map(({ croppedDataURL }, index) => (
-                  <li
-                    key={index}
-                    className={`${prefixCls}-indicator-item${
-                      indexCropping === index ? ` ${prefixCls}-indicator-item-active` : ''
-                    }`}
-                    onClick={() => {
-                      updateCroppingImage(refCropper.current?.getCroppedImage());
-                      setIndexCropping(index);
-                    }}
-                  >
-                    <img alt="image_snapshot" src={croppedDataURL} />
-                  </li>
-                ))}
-              </ol>
+              {imagesToCrop.length > 1 ? (
+                <ol className={`${prefixCls}-indicator`}>
+                  {imagesToCrop.map(({ croppedDataURL }, index) => (
+                    <li
+                      key={index}
+                      className={`${prefixCls}-indicator-item${
+                        indexCropping === index ? ` ${prefixCls}-indicator-item-active` : ''
+                      }`}
+                      onClick={() => {
+                        updateCroppingImage(refCropper.current?.getCroppedImage());
+                        setIndexCropping(index);
+                      }}
+                    >
+                      <img alt="image_snapshot" src={croppedDataURL} />
+                    </li>
+                  ))}
+                </ol>
+              ) : null}
+
               <Cropper
                 ref={refCropper}
                 prefixCls={prefixCls}
@@ -159,7 +162,7 @@ function ImageUploader(props: ImageUploaderProps, ref) {
             title: file.name,
             content: (
               <img
-                className={`${prefixCls}-preview-img`}
+                className={`${prefixCls}-modal-preview-img`}
                 alt="image_preview"
                 src={file.url || URL.createObjectURL(file.originFile)}
               />

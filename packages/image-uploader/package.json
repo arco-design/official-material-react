@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/image-uploader",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "附带有裁剪功能的图片上传组件",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -30,8 +30,7 @@
     "react-dom": "^16.0.1"
   },
   "dependencies": {
-    "react-cropper": "^2.1.8",
-    "react-easy-crop": "^4.5.0"
+    "react-cropper": "^2.1.8"
   },
   "devDependencies": {
     "arco-cli-dev-utils": "^1.0.0"
@@ -54,6 +53,5 @@
       "表单"
     ]
   },
-  "license": "MIT",
-  "gitHead": "d2af8ff9eca384564e6f31e0371ff4756e5f7d25"
+  "license": "MIT"
 }
