@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import ImageUploader from '@arco-materials/image-uploader';
 
 export default () => {
-  const refUploader = useRef(null);
   const refCropHandlerTimer = useRef(null);
   const [croppedImageData, setCroppedImageData] = useState(null);
 
@@ -15,10 +14,8 @@ export default () => {
 
   return (
     <ImageUploader
-      ref={refUploader}
       modalProps={{ title: 'Upload Image', icon: null }}
       aspectRatio={16 / 9}
-      multiple
       name="image"
       action="https://api.imgbb.com/1/upload"
       data={{
@@ -37,6 +34,13 @@ export default () => {
         </div>
       }
       onCrop={cropHandler}
+      defaultFileList={[
+        {
+          uid: '-2',
+          name: 'hello.png',
+          url: '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/a8c8cdb109cb051163646151a4a5083b.png~tplv-uwbnlip3yd-webp.webp',
+        },
+      ]}
     />
   );
 };

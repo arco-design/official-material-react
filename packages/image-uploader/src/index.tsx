@@ -11,13 +11,14 @@ function ImageUploader(props: ImageUploaderProps, ref) {
   const prefixCls = 'am-image-uploader';
   const {
     accept = 'image/*',
-    action = '/',
     shape = 'rect',
     initialAspectRatio = 1,
     quality = 1,
     rotate = true,
     scale = true,
+    action,
     aspectRatio,
+    fileList: propFileList,
     extraCropperContent,
     onCrop,
     cropperProps,
@@ -29,9 +30,15 @@ function ImageUploader(props: ImageUploaderProps, ref) {
   const refCropper = useRef<CropperHandle>(null);
   const refUpload = useRef<UploadInstance>(null);
 
-  const [fileList, setFileList] = useState<UploadItem[]>(defaultFileList || []);
+  const [stateFileList, setStateFileList] = useState<UploadItem[]>(defaultFileList || []);
   const [indexCropping, setIndexCropping] = useState<number>(0);
   const [modalVisible, setModalVisible] = useState(false);
+
+  const fileList = propFileList || stateFileList;
+  const setFileList = (list: UploadItem[]) => {
+    setStateFileList(list);
+    rest?.onChange(list, null);
+  };
 
   // Images need to be cropped
   const imagesToCrop = useMemo<Array<ImageInfo>>(() => {
@@ -50,7 +57,7 @@ function ImageUploader(props: ImageUploaderProps, ref) {
     });
 
     return result;
-  }, [JSON.stringify(fileList)]);
+  }, [JSON.stringify(fileList.map(({ name }) => name))]);
 
   useEffect(() => {
     setModalVisible(!!imagesToCrop.length);

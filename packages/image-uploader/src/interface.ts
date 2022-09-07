@@ -10,7 +10,6 @@ export interface ImageUploaderProps extends UploadProps {
   /**
    * @zh 上传服务器接口地址
    * @en Uploading url
-   * @defaultValue '/'
    */
   action?: string;
   /**
