@@ -2,6 +2,23 @@ import Cropper from 'cropperjs';
 import { ConfirmProps } from '@arco-design/web-react/es/Modal/confirm';
 import { UploadProps } from '@arco-design/web-react';
 import { ReactNode } from 'react';
+import { UploadInstance } from '@arco-design/web-react/es/Upload';
+
+/**
+ * @title ImageUploaderHandle
+ */
+export type ImageUploaderHandle = {
+  /**
+   * @zh Arco Upload 示例
+   * @eh Instance of Arco Upload
+   */
+  upload: UploadInstance;
+  /**
+   * @zh 获取裁剪过的图片数据
+   * @en Get the data for cropped image
+   */
+  getCroppedImage: () => string;
+};
 
 /**
  * @title ImageCropUploader
@@ -62,7 +79,12 @@ export interface ImageUploaderProps extends UploadProps {
    * @zh 触发裁剪时的回调
    * @en Callback for image cropped
    */
-  onCrop?: (dataURL: string) => void;
+  onCrop?: () => void;
+  /**
+   * @zh 裁剪就绪时的回调
+   * @en Callback for cropper ready
+   */
+  onCropperReady?: () => void;
   /**
    * @zh 裁剪组件额外属性
    * @en additional props of crop component

@@ -1,7 +1,7 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Upload, Modal } from '@arco-design/web-react';
 import { UploadInstance, UploadItem } from '@arco-design/web-react/es/Upload';
-import { ImageUploaderProps } from './interface';
+import { ImageUploaderHandle, ImageUploaderProps } from './interface';
 import Cropper, { CropperHandle } from './Cropper';
 import dataUrlToFile from './utils/dataUrlToFile';
 
@@ -68,6 +68,13 @@ function ImageUploader(props: ImageUploaderProps, ref) {
       setIndexCropping(0);
     }
   }, [modalVisible]);
+
+  useImperativeHandle<unknown, ImageUploaderHandle>(ref, () => {
+    return {
+      upload: refUpload.current,
+      getCroppedImage: () => refCropper.current?.getCroppedImage(),
+    };
+  }, []);
 
   const updateCroppingImage = (croppedDataURL: string) => {
     if (croppedDataURL) {
@@ -152,10 +159,7 @@ function ImageUploader(props: ImageUploaderProps, ref) {
         ) : null}
       </Modal>
       <Upload
-        ref={(_ref) => {
-          ref = _ref;
-          refUpload.current = ref;
-        }}
+        ref={refUpload}
         autoUpload={false}
         listType="picture-card"
         accept={accept}

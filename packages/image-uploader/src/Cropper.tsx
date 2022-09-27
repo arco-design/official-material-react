@@ -15,6 +15,7 @@ interface CropperProps
     | 'cropperProps'
     | 'quality'
     | 'onCrop'
+    | 'onCropperReady'
   > {
   prefixCls: string;
   image: string;
@@ -38,6 +39,7 @@ function Cropper(props: CropperProps, ref) {
     quality,
     cropperProps,
     onCrop,
+    onCropperReady,
   } = props;
   const prefixCls = `${propPrefixCls}-cropper`;
 
@@ -47,7 +49,6 @@ function Cropper(props: CropperProps, ref) {
   const refCropperInstance = useRef<Cropper>(null);
   const refCropperFactory = useRef<HTMLImageElement>(null);
 
-  // TODO test here
   useEffect(() => {
     if (shape === 'round') {
       document.styleSheets[0].insertRule(`.cropper-view-box,
@@ -87,8 +88,11 @@ function Cropper(props: CropperProps, ref) {
         aspectRatio={aspectRatio}
         src={image}
         ref={refCropperFactory}
-        ready={() => (refCropperInstance.current = (refCropperFactory.current as any).cropper)}
-        crop={() => onCrop?.(getCroppedImage())}
+        ready={() => {
+          refCropperInstance.current = (refCropperFactory.current as any).cropper;
+          onCropperReady?.();
+        }}
+        crop={onCrop}
         style={{ height: 340 }}
         {...cropperProps}
       />

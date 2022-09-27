@@ -2,18 +2,20 @@ import React, { useRef, useState } from 'react';
 import ImageUploader from '@arco-materials/image-uploader';
 
 export default () => {
+  const refImageUploader = useRef(null);
   const refCropHandlerTimer = useRef(null);
   const [croppedImageData, setCroppedImageData] = useState(null);
 
-  const cropHandler = (data) => {
+  const cropHandler = () => {
     refCropHandlerTimer.current && clearTimeout(refCropHandlerTimer.current);
     refCropHandlerTimer.current = setTimeout(() => {
-      setCroppedImageData(data);
+      setCroppedImageData(refImageUploader.current.getCroppedImage());
     }, 500);
   };
 
   return (
     <ImageUploader
+      ref={refImageUploader}
       modalProps={{ title: 'Upload Image', icon: null }}
       aspectRatio={16 / 9}
       name="image"

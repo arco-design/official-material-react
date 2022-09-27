@@ -1,6 +1,6 @@
 /**
  * @file
- * @title 带有全选的 Arco 选择器
+ * @title SelectWithCheckAll
  * @memberOf 数据录入
  * @description 带有全选、分组选择的 Select 扩展组件。
  * @author MisterLuffy

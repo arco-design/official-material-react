@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/material-team-site",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Project for Arco Material Team Site",
   "scripts": {
     "dev": "arco-doc-site dev",
@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@arco-design/theme-line": "^0.0.2",
-    "arco-material-doc-site": "^1.13.0"
+    "arco-material-doc-site": "^1.14.4"
   },
   "license": "MIT",
   "files": [
