@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/select-with-check-all",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Arco Select component with check-all, check-group.",
   "main": "./lib/index.js",
   "module": "./es/index.js",
