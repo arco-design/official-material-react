@@ -54,6 +54,7 @@ const DocSearch = (props: DocSearchProps) => {
           {options.map(({ text, href }, index) => {
             return (
               <Select.Option
+                key={href}
                 className={index === options.length - 1 ? `${PREFIX_CLS}-option-tail` : ''}
                 value={href}
               >
@@ -64,7 +65,7 @@ const DocSearch = (props: DocSearchProps) => {
         </Select.OptGroup>
       );
     });
-  }, [JSON.stringify(data)]);
+  }, [data]);
 
   return (
     <Select
