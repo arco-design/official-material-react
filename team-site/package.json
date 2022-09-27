@@ -1,11 +1,12 @@
 {
   "name": "@arco-materials/material-team-site",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Project for Arco Material Team Site",
   "scripts": {
     "dev": "arco-doc-site dev",
     "build": "arco-doc-site build",
-    "preview": "arco preview --teamSite --path \"/dist&arcoVersion=latest\""
+    "preview": "arco preview --teamSite --path \"/dist&arcoVersion=latest\"",
+    "prepublishOnly": "yarn build"
   },
   "devDependencies": {
     "@arco-design/theme-line": "^0.0.2",
