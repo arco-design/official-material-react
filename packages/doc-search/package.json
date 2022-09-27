@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/doc-search",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "文档搜索框",
   "main": "./lib/index.js",
   "module": "./es/index.js",
