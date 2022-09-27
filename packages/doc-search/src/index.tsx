@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Select } from '@arco-design/web-react';
 import { IconEmpty, IconSearch } from '@arco-design/web-react/icon';
+import cs from 'classnames';
 import { DocSearchProps } from './interface';
 import enUS from './locale/en-US';
 
@@ -69,16 +70,12 @@ const DocSearch = (props: DocSearchProps) => {
 
   return (
     <Select
-      className={PREFIX_CLS}
-      value={undefined}
       showSearch
+      value={undefined}
       placeholder={locale.tipStartSearch}
       suffixIcon={<IconSearch />}
       children={selectChildren}
       popupVisible={visible}
-      triggerProps={{
-        className: `${PREFIX_CLS}-popup`,
-      }}
       notFoundContent={
         <div className={`${PREFIX_CLS}-no-result`}>
           <IconEmpty />
@@ -86,6 +83,11 @@ const DocSearch = (props: DocSearchProps) => {
         </div>
       }
       {...selectProps}
+      className={cs(PREFIX_CLS, selectProps?.className)}
+      triggerProps={{
+        ...selectProps?.triggerProps,
+        className: cs(`${PREFIX_CLS}-popup`, selectProps?.triggerProps?.className),
+      }}
       onVisibleChange={(visible) => {
         selectProps?.onVisibleChange?.(visible);
         tryChangeVisible(visible);

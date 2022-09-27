@@ -32,6 +32,9 @@
   "devDependencies": {
     "arco-cli-dev-utils": "^1.0.0"
   },
+  "dependencies": {
+    "classnames": "^2.3.1"
+  },
   "sideEffects": [
     "dist/**/*",
     "{es,lib,src}/**/style/*",
