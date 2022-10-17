@@ -9,7 +9,6 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
-    "@arco-design/theme-line": "^0.0.2",
     "arco-material-doc-site": "^1.14.4"
   },
   "license": "MIT",
