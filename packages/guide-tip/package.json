@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/guide-tip",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "./lib/index.js",
   "module": "./es/index.js",
@@ -25,9 +25,9 @@
     "preview": "arco preview"
   },
   "peerDependencies": {
+    "@arco-design/web-react": "~2",
     "react": ">=16",
-    "react-dom": "^16.0.1",
-    "@arco-design/web-react": "~2"
+    "react-dom": "^16.0.1"
   },
   "devDependencies": {
     "arco-cli-dev-utils": "^1.0.0"
