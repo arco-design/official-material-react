@@ -22,12 +22,15 @@ export interface GuideTipProps {
 }
 
 const GuideTip = (props: GuideTipProps) => {
+  // 使用自定义的类名前缀
   const prefixCls = 'm-guide-tip';
   const { steps, visible } = props;
+  // 标识当前展示的气泡内容索引
   const [currentIndex, setCurrentIndex] = useState(-1);
 
   const current = steps[currentIndex];
 
+  // 通过一定方式计算出 target 的位置，并应用在占位元素上，从而让弹出层能准确指向 target
   const targetStyle = useMemo(() => {
     if (!visible) {
       return;
