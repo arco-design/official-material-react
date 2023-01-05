@@ -1,3 +1,36 @@
-.arco-rc-tooltip-button {
-  padding: 20px;
+@m-prefix: m-guide-tip;
+
+.@{m-prefix} {
+  max-width: unset;
+  min-width: 200px;
+
+  .arco-popover-title,
+  .arco-popover-content {
+    color: var(--color-white);
+  }
+
+  .arco-popover-content,
+  .arco-popover-arrow {
+    background: rgb(var(--primary-6));
+  }
+
+  &-footer {
+    text-align: right;
+    margin-top: 18px;
+  }
+
+  &-footer &-prev-btn {
+    border-color: var(--color-border-2);
+    margin-right: 8px;
+  }
+
+  &-footer &-next-btn {
+    // background-color: var(--color-fill-1);
+  }
+}
+
+.@{m-prefix}-target {
+  position: fixed;
+  display: inline-block;
+  pointer-events: none;
 }

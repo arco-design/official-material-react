@@ -3,7 +3,7 @@ import GuideTip from '@arco-materials/guide-tip';
 import { Button, Space } from '@arco-design/web-react';
 
 export default () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   return (
     <div>
@@ -13,11 +13,11 @@ export default () => {
             setVisible(true);
           }}
         >
-          begin{' '}
+          点击跳转到 Step2
         </Button>
-        <Button className="step1">Step 1</Button>
-        <Button className="step2">Step 2</Button>
-        <Button className="step3">Step 3</Button>
+        <Button className="step1">Step 1 </Button>
+        <Button className="step2">Step 2 </Button>
+        <Button className="step3">Step 3 </Button>
       </Space>
 
       <GuideTip
