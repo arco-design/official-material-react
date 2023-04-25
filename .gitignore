@@ -68,10 +68,9 @@ typings/
 **/.DS_Store
 
 # dist things
-packages/*/dist
 packages/*/lib
 packages/*/es
-packages/*/docs
+packages/*/artifacts
 
 # Don't ignore arco-block src/lib
 !packages/*/src/lib

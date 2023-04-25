@@ -1,6 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import VerificationCode from '../index';
 
-mountTest(VerificationCode);
-
-describe('VerificationCode', () => {});
+describe('VerificationCode', () => {
+  it('render content', () => {
+    render(<VerificationCode />);
+  });
+});

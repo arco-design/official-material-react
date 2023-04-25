@@ -5,50 +5,27 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
-  "umd": {
-    "file": "./dist/index.min.js",
-    "module": "arcoMaterial",
-    "style": "./dist/css/index.css"
-  },
   "scripts": {
-    "dev": "arco-scripts dev:component",
-    "build": "yarn clean && arco-scripts build:component",
-    "docgen": "arco-scripts docgen",
-    "test:client": "arco-scripts build:component:cjs && arco-scripts test:client",
-    "test:node": "arco-scripts build:component:cjs && arco-scripts test:node",
-    "test": "arco-scripts build:component:cjs && NODE_ENV=test arco-scripts test",
-    "show:config": "arco-scripts show:config",
-    "clean": "rm -rf es && rm -rf lib && rm -rf dist && rm -rf docs",
-    "prepublishOnly": "yarn build && yarn docgen",
-    "generate": "arco generate --from-current-package",
-    "sync": "arco sync --from-current-package",
-    "preview": "arco preview"
+    "clean": "rm -rf es lib artifacts"
   },
   "peerDependencies": {
     "@arco-design/web-react": ">=2.0.0",
     "react": ">=16",
     "react-dom": "^16.0.1"
   },
-  "sideEffects": [
-    "dist/**/*",
-    "{es,lib,src}/**/style/*",
-    "*.less"
-  ],
-  "license": "MIT",
-  "arcoMeta": {
-    "type": "react-component",
-    "title": "动态图标墙",
-    "category": []
-  },
-  "files": [
-    "es",
-    "lib",
-    "dist",
-    "docs"
-  ],
   "dependencies": {
     "classnames": "^2.3.1",
     "gsap": "^3.9.1",
     "lodash.shuffle": "^4.2.0"
-  }
+  },
+  "sideEffects": [
+    "{es,lib,src}/**/style/*",
+    "*.less"
+  ],
+  "files": [
+    "es",
+    "lib",
+    "artifacts"
+  ],
+  "license": "MIT"
 }

@@ -1,6 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import SelectWithCheckAll from '../index';
 
-mountTest(SelectWithCheckAll);
-
-describe('SelectWithCheckAll', () => {});
+describe('SelectWithCheckAll', () => {
+  it('render content', () => {
+    render(<SelectWithCheckAll />);
+  });
+});

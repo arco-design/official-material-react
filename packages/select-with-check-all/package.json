@@ -5,52 +5,22 @@
   "main": "./lib/index.js",
   "module": "./es/index.js",
   "types": "./es/index.d.ts",
-  "umd": {
-    "file": "./dist/index.min.js",
-    "module": "arcoMaterial",
-    "style": "./dist/css/index.css"
-  },
   "scripts": {
-    "dev": "arco-scripts dev:component",
-    "build": "arco-scripts build:component",
-    "docgen": "arco-scripts docgen",
-    "test:client": "arco-scripts build:component:cjs && arco-scripts test:client",
-    "test:node": "arco-scripts build:component:cjs && arco-scripts test:node",
-    "test": "arco-scripts build:component:cjs && NODE_ENV=test arco-scripts test",
-    "show:config": "arco-scripts show:config",
-    "clean": "rm -rf es lib dist docs",
-    "prepublishOnly": "yarn clean && yarn build && yarn docgen",
-    "generate": "arco generate --from-current-package",
-    "sync": "arco sync --from-current-package",
-    "preview": "arco preview"
+    "clean": "rm -rf es lib artifacts"
   },
   "peerDependencies": {
-    "@arco-design/web-react": "~2",
+    "@arco-design/web-react": ">=2.0.0",
     "react": ">=16",
     "react-dom": "^16.0.1"
   },
-  "devDependencies": {
-    "arco-cli-dev-utils": "^1.0.0"
-  },
   "sideEffects": [
-    "dist/**/*",
     "{es,lib,src}/**/style/*",
     "*.less"
   ],
   "files": [
     "es",
     "lib",
-    "dist",
-    "docs"
+    "artifacts"
   ],
-  "arcoMeta": {
-    "type": "react-component",
-    "title": "Select with check-all",
-    "category": [
-      "表单",
-      "筛选",
-      "弹出框"
-    ]
-  },
   "license": "MIT"
 }

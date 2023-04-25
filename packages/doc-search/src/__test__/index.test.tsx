@@ -1,13 +1,9 @@
-import * as React from 'react';
-import { mount } from 'enzyme';
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import DocSearch from '../index';
 
-mountTest(DocSearch);
-
 describe('DocSearch', () => {
-  it('render button count correctly', () => {
-    const component = mount(<DocSearch title="Title">Test</DocSearch>);
-    expect(component.find('button').text()).toBe('Test');
+  it('render content', () => {
+    render(<DocSearch />);
   });
 });

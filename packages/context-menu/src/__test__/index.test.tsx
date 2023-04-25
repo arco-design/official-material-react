@@ -1,6 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import ContextMenu from '../index';
 
-mountTest(ContextMenu);
-
-describe('ContextMenu', () => {});
+describe('ContextMenu', () => {
+  it('render content', () => {
+    render(<ContextMenu children={null} />);
+  });
+});

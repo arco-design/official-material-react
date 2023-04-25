@@ -178,7 +178,7 @@ function VerificationCode(props: VerificationCodeProps) {
       {valueWithLength.map((currentValue, index) => {
         const splitDom = renderSplit(index);
         return (
-          <>
+          <React.Fragment key={index}>
             <InputComponent
               className={cs(`${PREFIX_CLS}-input`, `${PREFIX_CLS}-input-${size}`)}
               key={index}
@@ -198,7 +198,7 @@ function VerificationCode(props: VerificationCodeProps) {
               disabled={props.disabled}
             />
             {splitDom}
-          </>
+          </React.Fragment>
         );
       })}
       <Button.Group style={{ verticalAlign: 'top' }}>

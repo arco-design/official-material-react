@@ -3,7 +3,6 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "ignoreChanges": [
-    "**/arcoMeta.json",
     "**/README.md"
   ]
 }

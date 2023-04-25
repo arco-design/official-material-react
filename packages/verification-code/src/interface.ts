@@ -68,7 +68,7 @@ export interface VerificationCodeProps {
   /**
    * @zh 值清空时的回调
    */
-  onClear: () => void;
+  onClear?: () => void;
   /**
    * @zh 所有输入框都有值时的回调
    */

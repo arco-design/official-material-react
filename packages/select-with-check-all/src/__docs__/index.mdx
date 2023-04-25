@@ -1,0 +1,38 @@
+---
+title: SelectWithCheckAll
+labels: ['数据录入']
+description: 带有全选、分组选择的 Select 扩展组件。
+---
+
+# 基本用法
+
+通过 `groupedOptions` 传入选项以支持全选，通过 `children` 传入的选项不支持此功能。
+
+import Basic from './basic';
+
+<div data-arco-demo="Basic">
+  <Basic />
+</div>
+
+
+# 自定义复选框渲染
+
+为 `checkAll` 和 `checkGroup` 传入函数，自定义复选框渲染方式。
+
+import CustomRender from './customRender';
+
+<div data-arco-demo="CustomRender">
+  <CustomRender />
+</div>
+
+
+
+# 自定义下拉列表渲染
+
+通过经过扩展的 `dropdownRender` 实现带有全选功能的下拉框。
+
+import CustomDropdown from './customDropdown';
+
+<div data-arco-demo="CustomDropdown">
+  <CustomDropdown />
+</div>

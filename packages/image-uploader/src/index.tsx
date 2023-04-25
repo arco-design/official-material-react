@@ -191,4 +191,4 @@ function ImageUploader(props: ImageUploaderProps, ref) {
 
 export default React.forwardRef<unknown, ImageUploaderProps>(ImageUploader);
 
-export { ImageUploaderProps };
+export type { ImageUploaderProps };

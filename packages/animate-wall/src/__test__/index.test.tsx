@@ -1,6 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import AnimateWall from '../index';
 
-mountTest(AnimateWall);
-
-describe('AnimateWall', () => {});
+describe('AnimateWall', () => {
+  it('render content', () => {
+    render(<AnimateWall />);
+  });
+});

@@ -3,6 +3,8 @@
 
 // polyfill 提供了这个方法用来获取设备的 pixel ratio
 export default function (context: any) {
+  if (!context) return 1;
+
   const backingStore =
     context.backingStorePixelRatio ||
     context.webkitBackingStorePixelRatio ||

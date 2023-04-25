@@ -1,8 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import ImageUploader from '../index';
 
-mountTest(ImageUploader);
-
-describe('ImageUploader', () => {
-  it('render button count correctly', () => {});
+describe('GuideTip', () => {
+  it('render content', () => {
+    render(<ImageUploader />);
+  });
 });

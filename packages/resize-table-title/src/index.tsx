@@ -1,27 +1,11 @@
 /* eslint-disable no-use-before-define */
 import { TableColumnProps } from '@arco-design/web-react';
-import React, { CSSProperties, ReactNode, useState } from 'react';
-import { Resizable, ResizableProps, ResizeCallbackData } from 'react-resizable';
+import React, { useState } from 'react';
+import { Resizable, ResizeCallbackData } from 'react-resizable';
 
-/**
- * @title ResizeTableTitle
- */
-export type ResizeTableTitleProps = ResizableProps & {
-  /**
-   * @zh Arco Column的定位属性，固定头和列到左边或者右边
-   * @defaultValue -
-   * @version 1.0.0
-   */
-  fixed?: string;
-  /**
-   * @zh 组件上的style样式
-   * @defaultValue {}
-   * @version 1.0.0
-   */
-  style?: CSSProperties;
-};
+import type { ResizeTableTitleProps } from './interface';
 
-const ResizeTableTitle: ReactNode = (props: ResizeTableTitleProps) => {
+const ResizeTableTitle = (props: ResizeTableTitleProps) => {
   const { onResize, fixed, width, ...restProps } = props;
   if (!width) {
     return <th {...restProps} style={{ borderLeft: '1px solid #e5e8ef' }} />;
@@ -80,5 +64,7 @@ export const resizeCols = (originColumns: TableColumnProps[]) => {
 
   return columns;
 };
+
+export type { ResizeTableTitleProps };
 
 export default ResizeTableTitle;

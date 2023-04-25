@@ -1,0 +1,45 @@
+---
+title: Watermark
+labels: ['信息展示']
+description: 通用水印组件，可给指定 DOM 添加水印内容。
+---
+
+# 基本用法
+
+可设置 `content` 或 `image` 添加简单水印。
+
+import Basic from './basic';
+
+<div data-arco-demo="Basic">
+  <Basic />
+</div>
+
+# 指定生效容器
+
+可指定 `container` 设置水印生效容器， 水印将作为 `container` 的第一个子节点。
+
+import Container from './container';
+
+<div data-arco-demo="Container">
+  <Container />
+</div>
+
+
+# 更新水印
+
+import Config from './config';
+
+<div data-arco-demo="Config">
+  <Config />
+</div>
+
+
+# 防篡改
+
+指定 `wmId` 作为 水印唯一标识，前端将会通过 `MutationObserver` 做简单防篡改。
+
+import Locked from './locked';
+
+<div data-arco-demo="Locked">
+  <Locked />
+</div>

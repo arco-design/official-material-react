@@ -5,12 +5,12 @@ import type { ItemType, ContextMenuProps } from './inferface';
 const PREFIX_CLS = 'am-context-menu';
 
 const ContextMenu = (props: ContextMenuProps) => {
-  const { children, items, menuProps, onClickItem, ...rest } = props;
+  const { children, items = [], menuProps, onClickItem, ...rest } = props;
 
   const loopItems = (_items: ItemType[], parentKey) => {
     return _items.map((item, index) => {
       if (item.type === 'divider') {
-        return <Divider className={`${PREFIX_CLS}-divider`} />;
+        return <Divider key={`divider_${index}`} className={`${PREFIX_CLS}-divider`} />;
       }
       if (item.children && item.children.length) {
         return (

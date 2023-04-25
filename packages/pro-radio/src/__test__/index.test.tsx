@@ -1,6 +1,9 @@
-import mountTest from '../../../../tests/mountTest';
+import React from 'react';
+import { render } from '@testing-library/react';
 import ProRadio from '../index';
 
-mountTest(ProRadio);
-
-describe('ProRadio', () => {});
+describe('ProRadio', () => {
+  it('render content', () => {
+    render(<ProRadio />);
+  });
+});

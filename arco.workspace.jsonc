@@ -1,0 +1,82 @@
+{
+  "arco.aspect/workspace": {
+    "components": {
+      "extends": {
+        "entries": {
+          "base": ".",
+          "main": "./index.ts",
+          "style": "./style/index.less",
+          "jsdoc": "./interface.ts",
+          "preview": "./__docs__/index.mdx"
+        }
+      },
+      "members": [
+        {
+          "name": "AnimateWall",
+          "rootDir": "packages/animate-wall/src",
+          "author": "yuhan0709"
+        },
+        {
+          "name": "ConfettiButton",
+          "rootDir": "packages/confetti-button/src",
+          "author": "PengJiyuan"
+        },
+        {
+          "name": "ContextMenu",
+          "rootDir": "packages/context-menu/src",
+          "author": "yinkaihui"
+        },
+        {
+          "name": "DocSearch",
+          "rootDir": "packages/doc-search/src",
+          "author": "MisterLuffy"
+        },
+        {
+          "name": "GuideTip",
+          "rootDir": "packages/guide-tip/src",
+          "author": "yinkaihui"
+        },
+        {
+          "name": "ImageUploader",
+          "rootDir": "packages/image-uploader/src",
+          "author": "SleepDevil"
+        },
+        {
+          "name": "NavbarUser",
+          "rootDir": "packages/navbar-user/src",
+          "author": "MisterLuffy"
+        },
+        {
+          "name": "ProRadio",
+          "rootDir": "packages/pro-radio/src",
+          "author": "yinkaihui"
+        },
+        {
+          "name": "ResizeTableTitle",
+          "rootDir": "packages/resize-table-title/src",
+          "author": "gitducheng"
+        },
+        {
+          "name": "SelectWithCheckAll",
+          "rootDir": "packages/select-with-check-all/src",
+          "author": "MisterLuffy"
+        },
+        {
+          "name": "TriggerEffect",
+          "rootDir": "packages/trigger-effect/src",
+          "author": "PengJiyuan"
+        },
+        {
+          "name": "VerificationCode",
+          "rootDir": "packages/verification-code/src",
+          "author": "yuhan0709"
+        },
+        {
+          "name": "Watermark",
+          "rootDir": "packages/watermark/src",
+          "author": "yuhan0709"
+        }
+      ]
+    }
+  }
+}

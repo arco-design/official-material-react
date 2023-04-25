@@ -1,30 +1,12 @@
-import React, { ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Button, Popover } from '@arco-design/web-react';
 
-/**
- * @title GuideTip
- */
-export interface GuideTipProps {
-  /**
-   * @zh 引导步骤
-   * @version 1.0.0
-   */
-  steps?: { title?: ReactNode; content?: ReactNode; target: () => HTMLElement }[];
-  /**
-   * @zh 是否显示引导气泡
-   * @version 1.0.0
-   */
-  visible?: boolean;
-  /**
-   * @zh 完成时的回调
-   */
-  onEnd?: () => void;
-}
+import type { GuideTipProps } from './interface';
 
 const GuideTip = (props: GuideTipProps) => {
   // 使用自定义的类名前缀
   const prefixCls = 'm-guide-tip';
-  const { steps, visible } = props;
+  const { steps = [], visible } = props;
   // 标识当前展示的气泡内容索引
   const [currentIndex, setCurrentIndex] = useState(-1);
 
@@ -94,5 +76,7 @@ const GuideTip = (props: GuideTipProps) => {
     </Popover>
   );
 };
+
+export type { GuideTipProps };
 
 export default GuideTip;
