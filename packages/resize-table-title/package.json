@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/resize-table-title",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "拖动改变table表头宽度",
   "main": "./lib/index.js",
   "module": "./es/index.js",

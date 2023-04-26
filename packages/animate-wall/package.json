@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/animate-wall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "arco 官网动态出现隐藏图标墙",
   "main": "./lib/index.js",
   "module": "./es/index.js",

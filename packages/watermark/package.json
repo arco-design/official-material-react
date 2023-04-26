@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/watermark",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "可给某个区域加上水印表示版权等",
   "main": "./lib/index.js",
   "module": "./es/index.js",
