@@ -26,7 +26,7 @@ module.exports = function defineConfig() {
     // Auto import component style to __docs__/index.mdx
     if (mdxLoader) {
       mdxLoader.options.preProcessFile = ({ path: filePath, content }) => {
-        const componentStyleEntry = '../style/index.less';
+        const componentStyleEntry = '../style/index.ts';
         if (fs.existsSync(path.resolve(path.dirname(filePath), componentStyleEntry))) {
           return `${content}\nimport '${componentStyleEntry}';`;
         }

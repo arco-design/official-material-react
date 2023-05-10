@@ -2,6 +2,7 @@
   "arco.aspect/workspace": {
     "components": {
       "extends": {
+        "group": 1,
         "entries": {
           "base": ".",
           "main": "./index.ts",
@@ -29,6 +30,11 @@
         {
           "name": "DocSearch",
           "rootDir": "packages/doc-search/src",
+          "author": "MisterLuffy"
+        },
+        {
+          "name": "EditableTree",
+          "rootDir": "packages/editable-tree/src",
           "author": "MisterLuffy"
         },
         {

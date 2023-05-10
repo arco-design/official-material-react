@@ -1,0 +1,36 @@
+@editable-tree-prefix-cls: ~'am-editable-tree';
+
+.@{editable-tree-prefix-cls} {
+  &-node-icon-group {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    > * {
+      margin-left: 10px;
+    }
+  }
+
+  &-node-edit-confirm {
+    .arco-popconfirm-inner-content {
+      padding-left: 0;
+    }
+  }
+
+  .tree-node-dragged {
+    > .arco-tree-node-title {
+      animation: treeNodeBlinkBg 0.4s 2;
+    }
+  }
+
+  @keyframes treeNodeBlinkBg {
+    0% {
+      background-color: transparent;
+    }
+
+    100% {
+      background-color: var(--color-primary-light-1);
+    }
+  }
+}

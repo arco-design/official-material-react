@@ -1,0 +1,30 @@
+{
+  "name": "@arco-materials/editable-tree",
+  "version": "0.0.1",
+  "description": "可编辑的树组件",
+  "main": "./lib/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf es lib artifacts"
+  },
+  "peerDependencies": {
+    "@arco-design/web-react": ">=2.0.0",
+    "react": ">=16",
+    "react-dom": "^16.0.1"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "lodash.clonedeep": "^4.5.0"
+  },
+  "sideEffects": [
+    "{es,lib,src}/**/style/*",
+    "*.less"
+  ],
+  "files": [
+    "es",
+    "lib",
+    "artifacts"
+  ],
+  "license": "MIT"
+}
