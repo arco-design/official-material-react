@@ -1,6 +1,6 @@
 {
   "name": "@arco-materials/editable-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "可编辑的树组件",
   "main": "./lib/index.js",
   "module": "./es/index.js",
