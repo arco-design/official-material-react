@@ -63,8 +63,10 @@ export default function EditableTree(props: EditableTreeProps) {
       className={cs(prefixCls, treeProps.className)}
       treeData={mergedTreeData}
       renderExtra={(node) => {
-        return (node as any).editable ? (
+        const eleExtraFromProps = treeProps?.renderExtra?.(node);
+        return (node as any).editable || eleExtraFromProps ? (
           <div className={`${prefixCls}-node-icon-group`}>
+            {eleExtraFromProps}
             <Popconfirm
               className={`${prefixCls}-node-edit-confirm`}
               icon={null}

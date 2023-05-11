@@ -8,6 +8,7 @@
     "start": "arco start",
     "build": "arco build",
     "test": "arco test",
+    "sync": "arco sync",
     "clean": "lerna run clean",
     "release": "lerna publish",
     "eslint": "eslint 'packages/**/src/**/*.{js,jsx,ts,tsx}' --fix --cache --quiet",
