@@ -12,7 +12,9 @@ export interface EditableTreeProps extends Partial<TreeProps> {
   tips?: {
     editNode?: ReactNode;
     insertNode?: ReactNode;
+    insertRootNode?: ReactNode;
     deleteNode?: ReactNode;
+    deleteAll?: ReactNode;
   };
 
   /**

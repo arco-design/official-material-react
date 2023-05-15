@@ -1,14 +1,29 @@
 @editable-tree-prefix-cls: ~'am-editable-tree';
 
 .@{editable-tree-prefix-cls} {
+  &-wrapper {
+    .arco-divider {
+      margin: 6px 0;
+    }
+  }
+
+  &-header {
+    padding: 4px 8px;
+
+    > .arco-icon {
+      cursor: pointer;
+      margin-right: 8px;
+    }
+  }
+
   &-node-icon-group {
     position: absolute;
-    right: 30px;
+    right: 32px;
     top: 50%;
     transform: translateY(-50%);
 
     > * {
-      margin-left: 10px;
+      margin-left: 8px;
     }
   }
 
