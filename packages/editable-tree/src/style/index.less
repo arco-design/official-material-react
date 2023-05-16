@@ -1,14 +1,14 @@
 @editable-tree-prefix-cls: ~'am-editable-tree';
 
 .@{editable-tree-prefix-cls} {
-  &-wrapper {
-    .arco-divider {
-      margin: 6px 0;
-    }
-  }
+  padding: 6px 8px;
 
   &-header {
-    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 8px;
+    background: var(--color-fill-1);
 
     > .arco-icon {
       cursor: pointer;

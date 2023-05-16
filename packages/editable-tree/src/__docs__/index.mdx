@@ -6,6 +6,20 @@ labels: ['信息展示']
 
 # 基本用法
 
+`EditableTree` 继承来自 Arco Tree 组件的所有属性，但对原始 Tree 组件 `TreeDataType` 进行了拓展。通过 `editable` 属性来标记树节点是否允许被编辑：
+
+```ts
+type EditableTreeDataType = TreeDataType & {
+  editable?:
+    | boolean
+    | {
+        insert?: boolean;
+        delete?: boolean;
+        rename?: boolean;
+      };
+};
+```
+
 import Basic from './basic';
 
 <div data-arco-demo="Basic">

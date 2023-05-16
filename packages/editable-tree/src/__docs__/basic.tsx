@@ -64,7 +64,7 @@ export default () => {
         draggable
         treeData={treeData}
         onChange={(data) => {
-          console.log(data);
+          console.log(`EditableTree data changed: `, data);
           setTreeData(data);
         }}
       />

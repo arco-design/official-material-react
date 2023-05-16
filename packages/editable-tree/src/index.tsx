@@ -7,14 +7,22 @@ import {
   Popconfirm,
   Input,
   PopconfirmProps,
-  Divider,
   InputProps,
+  Tooltip,
+  Empty,
 } from '@arco-design/web-react';
-import { TreeDataType } from '@arco-design/web-react/es/Tree/interface';
 
-import type { EditableTreeProps } from './interface';
+import type { EditableTreeDataType, EditableTreeProps } from './interface';
 
 const DEFAULT_TIPS: EditableTreeProps['tips'] = {
+  editNode: 'Edit title',
+  deleteNode: 'Delete',
+  insertNode: 'Insert a node',
+  insertRootNode: 'Insert a root node',
+  deleteAll: 'Delete all',
+};
+
+const DEFAULT_CONFIRM_TEXTS: EditableTreeProps['confirms'] = {
   editNode: 'Edit node title',
   deleteNode: 'Are you sure to delete this node?',
   insertNode: 'Insert a new node',
@@ -23,9 +31,14 @@ const DEFAULT_TIPS: EditableTreeProps['tips'] = {
 };
 
 function walkTreeNodeData(
-  data: TreeDataType[],
+  data: EditableTreeDataType[],
   targetKey: string,
-  callback: (item: TreeDataType, index: number, arr: TreeDataType[], path: string) => void,
+  callback: (
+    item: EditableTreeDataType,
+    index: number,
+    arr: EditableTreeDataType[],
+    path: string
+  ) => void,
   path = ''
 ) {
   data.some((item, index, arr) => {
@@ -47,7 +60,7 @@ function walkTreeNodeData(
 
 export default function EditableTree(props: EditableTreeProps) {
   const prefixCls = 'am-editable-tree';
-  const { tips, onChange, ...treeProps } = props;
+  const { tips, confirms, onChange, onNodeDelete, ...treeProps } = props;
   const [treeData, setTreeData] = useState<TreeProps['treeData']>(treeProps.treeData || []);
   const [editingNodeTitle, setEditingNodeTitle] = useState<string>(null);
   const [addingNodeTitle, setAddingNodeTitle] = useState<string>(null);
@@ -57,7 +70,8 @@ export default function EditableTree(props: EditableTreeProps) {
     onChange?.(nextTreeData);
   };
 
-  const mergeTips = { ...DEFAULT_TIPS, ...tips };
+  const mergedTips = { ...DEFAULT_TIPS, ...tips };
+  const mergedConfirmTexts = { ...DEFAULT_CONFIRM_TEXTS, ...confirms };
 
   const mergedTreeData = useMemo(() => {
     const merged = [...(treeProps?.treeData || treeData)];
@@ -80,136 +94,169 @@ export default function EditableTree(props: EditableTreeProps) {
       <div className={`${prefixCls}-header`}>
         <Popconfirm
           {...commonPopconfirmProps}
-          title={mergeTips.insertRootNode}
+          title={mergedConfirmTexts.insertRootNode}
           content={<Input {...commonInputProps} onChange={setAddingNodeTitle} />}
           onOk={() => {
             const nextTreeData = [
               ...mergedTreeData,
-              { title: addingNodeTitle, key: `${mergedTreeData.length}`, editable: true },
+              {
+                title: addingNodeTitle,
+                key: `${mergedTreeData.length}`,
+                editable: true,
+                children: [],
+              },
             ];
             tryUpdateTreeData(nextTreeData);
           }}
         >
-          <IconPlus />
+          <Tooltip content={mergedTips.insertRootNode}>
+            <IconPlus />
+          </Tooltip>
         </Popconfirm>
         <Popconfirm
           {...commonPopconfirmProps}
-          title={mergeTips.deleteAll}
+          title={mergedConfirmTexts.deleteAll}
           onOk={() => {
             tryUpdateTreeData([]);
           }}
         >
-          <IconDelete />
+          <Tooltip content={mergedTips.deleteAll}>
+            <IconDelete />
+          </Tooltip>
         </Popconfirm>
       </div>
-      <Divider />
-      <Tree
-        {...treeProps}
-        className={cs(prefixCls, treeProps.className)}
-        treeData={mergedTreeData}
-        renderExtra={(node) => {
-          const eleExtraFromProps = treeProps?.renderExtra?.(node);
-          return (node as any).editable || eleExtraFromProps ? (
-            <div className={`${prefixCls}-node-icon-group`}>
-              {eleExtraFromProps}
-              <Popconfirm
-                {...commonPopconfirmProps}
-                title={mergeTips.editNode}
-                content={
-                  <Input
-                    {...commonInputProps}
-                    defaultValue={node.title as string}
-                    onChange={setEditingNodeTitle}
-                  />
-                }
-                onOk={() => {
-                  const nextTreeData = [...mergedTreeData];
-                  walkTreeNodeData(nextTreeData, node._key, (item) => {
-                    item.title = editingNodeTitle;
-                  });
-                  tryUpdateTreeData(nextTreeData);
-                }}
-                onCancel={() => {
-                  setEditingNodeTitle(null);
-                }}
-              >
-                <IconEdit />
-              </Popconfirm>
-              <Popconfirm
-                {...commonPopconfirmProps}
-                title={mergeTips.insertNode}
-                content={<Input {...commonInputProps} onChange={setAddingNodeTitle} />}
-                onOk={() => {
-                  const nextTreeData = [...mergedTreeData];
-                  walkTreeNodeData(nextTreeData, node._key, (item) => {
-                    item.children ||= [];
-                    item.children.push({
-                      title: addingNodeTitle,
-                      key: `${node._key}-${item.children.length}`,
-                      editable: true,
-                    });
-                  });
-                  tryUpdateTreeData(nextTreeData);
-                }}
-              >
-                <IconPlus />
-              </Popconfirm>
-              <Popconfirm
-                {...commonPopconfirmProps}
-                title={mergeTips.deleteNode}
-                onOk={() => {
-                  const nextTreeData = [...mergedTreeData];
-                  walkTreeNodeData(nextTreeData, node._key, (_item, index, arr) => {
-                    arr.splice(index, 1);
-                  });
-                  tryUpdateTreeData(nextTreeData);
-                }}
-              >
-                <IconMinus />
-              </Popconfirm>
-            </div>
-          ) : null;
-        }}
-        onDrop={(info) => {
-          const { dragNode, dropNode, dropPosition } = info;
-          const nextTreeData = [...mergedTreeData];
 
-          let dragItem: TreeDataType;
-          let dragItemIndex: number;
-          let dragItemSiblings: TreeDataType[] = [];
-          walkTreeNodeData(nextTreeData, dragNode.props._key, (item, index, arr) => {
-            dragItem = item;
-            dragItemIndex = index;
-            dragItemSiblings = arr;
-            dragItem.className = 'tree-node-dragged';
-          });
+      {treeData?.length ? (
+        <Tree
+          {...treeProps}
+          className={cs(prefixCls, treeProps.className)}
+          treeData={mergedTreeData}
+          renderExtra={(_node) => {
+            const node = _node as EditableTreeDataType;
+            const eleExtraFromProps = treeProps?.renderExtra?.(node);
+            const editable = node.editable;
 
-          if (dropPosition === 0) {
-            // Move dragging node to drop node's children list
-            if ((dropNode.props as any).editable) {
+            return editable || eleExtraFromProps ? (
+              <div className={`${prefixCls}-node-icon-group`}>
+                {eleExtraFromProps}
+
+                {editable === true || (editable && editable.rename) ? (
+                  <Popconfirm
+                    {...commonPopconfirmProps}
+                    title={mergedConfirmTexts.editNode}
+                    content={
+                      <Input
+                        {...commonInputProps}
+                        defaultValue={node.title as string}
+                        onChange={setEditingNodeTitle}
+                      />
+                    }
+                    onOk={() => {
+                      const nextTreeData = [...mergedTreeData];
+                      walkTreeNodeData(nextTreeData, node._key, (item) => {
+                        item.title = editingNodeTitle;
+                      });
+                      tryUpdateTreeData(nextTreeData);
+                    }}
+                    onCancel={() => {
+                      setEditingNodeTitle(null);
+                    }}
+                  >
+                    <Tooltip content={mergedTips.editNode}>
+                      <IconEdit />
+                    </Tooltip>
+                  </Popconfirm>
+                ) : null}
+
+                {editable === true || (editable && editable.insert) ? (
+                  <Popconfirm
+                    {...commonPopconfirmProps}
+                    title={mergedConfirmTexts.insertNode}
+                    content={<Input {...commonInputProps} onChange={setAddingNodeTitle} />}
+                    onOk={() => {
+                      const nextTreeData = [...mergedTreeData];
+                      walkTreeNodeData(nextTreeData, node._key, (item) => {
+                        item.children ||= [];
+                        item.children.push({
+                          title: addingNodeTitle,
+                          key: `${node._key}-${item.children.length}`,
+                          editable: true,
+                          children: [],
+                        });
+                      });
+                      tryUpdateTreeData(nextTreeData);
+                    }}
+                  >
+                    <Tooltip content={mergedTips.insertNode}>
+                      <IconPlus />
+                    </Tooltip>
+                  </Popconfirm>
+                ) : null}
+
+                {editable === true || (editable && editable.delete) ? (
+                  <Popconfirm
+                    {...commonPopconfirmProps}
+                    title={mergedConfirmTexts.deleteNode}
+                    onOk={() => {
+                      const nextTreeData = [...mergedTreeData];
+                      walkTreeNodeData(nextTreeData, node._key, (_item, index, arr) => {
+                        arr.splice(index, 1);
+                      });
+                      tryUpdateTreeData(nextTreeData);
+                      onNodeDelete?.(_node);
+                    }}
+                  >
+                    <Tooltip content={mergedTips.deleteNode}>
+                      <IconMinus />
+                    </Tooltip>
+                  </Popconfirm>
+                ) : null}
+              </div>
+            ) : null;
+          }}
+          onDrop={(info) => {
+            const { dragNode, dropNode, dropPosition } = info;
+            const nextTreeData = [...mergedTreeData];
+
+            let dragItem: EditableTreeDataType;
+            let dragItemIndex: number;
+            let dragItemSiblings: EditableTreeDataType[] = [];
+            walkTreeNodeData(nextTreeData, dragNode.props._key, (item, index, arr) => {
+              dragItem = item;
+              dragItemIndex = index;
+              dragItemSiblings = arr;
+              dragItem.className = 'tree-node-dragged';
+            });
+
+            if (dropPosition === 0) {
+              // Move dragging node to drop node's children list
+              if ((dropNode.props as any).editable) {
+                dragItemSiblings.splice(dragItemIndex, 1);
+                walkTreeNodeData(nextTreeData, dropNode.props._key, (item) => {
+                  item.children = item.children || [];
+                  item.children.push(dragItem);
+                });
+              }
+            } else {
               dragItemSiblings.splice(dragItemIndex, 1);
-              walkTreeNodeData(nextTreeData, dropNode.props._key, (item) => {
-                item.children = item.children || [];
-                item.children.push(dragItem);
+              walkTreeNodeData(nextTreeData, dropNode.props._key, (_, index, arr) => {
+                arr.splice(dropPosition < 0 ? index : index + 1, 0, dragItem);
               });
             }
-          } else {
-            dragItemSiblings.splice(dragItemIndex, 1);
-            walkTreeNodeData(nextTreeData, dropNode.props._key, (_, index, arr) => {
-              arr.splice(dropPosition < 0 ? index : index + 1, 0, dragItem);
-            });
-          }
 
-          tryUpdateTreeData(nextTreeData);
-          setTimeout(() => {
-            dragItem.className = '';
-          }, 1000);
+            tryUpdateTreeData(nextTreeData);
+            setTimeout(() => {
+              dragItem.className = '';
+            }, 1000);
 
-          treeProps?.onDrop?.(info);
-        }}
-      />
+            treeProps?.onDrop?.(info);
+          }}
+        />
+      ) : (
+        <Empty />
+      )}
     </div>
   );
 }
 
-export type { EditableTreeProps };
+export type { EditableTreeProps, EditableTreeDataType };
