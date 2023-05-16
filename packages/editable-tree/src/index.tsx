@@ -230,7 +230,7 @@ export default function EditableTree(props: EditableTreeProps) {
 
             if (dropPosition === 0) {
               // Move dragging node to drop node's children list
-              if ((dropNode.props as any).editable) {
+              if (Array.isArray(dropNode.props.dataRef.children)) {
                 dragItemSiblings.splice(dragItemIndex, 1);
                 walkTreeNodeData(nextTreeData, dropNode.props._key, (item) => {
                   item.children = item.children || [];
