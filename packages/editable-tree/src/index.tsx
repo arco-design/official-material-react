@@ -61,25 +61,26 @@ function walkTreeNodeData(
 export default function EditableTree(props: EditableTreeProps) {
   const prefixCls = 'am-editable-tree';
   const { tips, confirms, onChange, onNodeDelete, ...treeProps } = props;
-  const [treeData, setTreeData] = useState<TreeProps['treeData']>(treeProps.treeData || []);
+  const [stateTreeData, setStateTreeData] = useState<TreeProps['treeData']>(
+    treeProps.treeData || []
+  );
   const [editingNodeTitle, setEditingNodeTitle] = useState<string>(null);
   const [addingNodeTitle, setAddingNodeTitle] = useState<string>(null);
 
   const tryUpdateTreeData = (nextTreeData: TreeProps['treeData']) => {
-    setTreeData(nextTreeData);
+    setStateTreeData(nextTreeData);
     onChange?.(nextTreeData);
   };
 
   const mergedTips = { ...DEFAULT_TIPS, ...tips };
   const mergedConfirmTexts = { ...DEFAULT_CONFIRM_TEXTS, ...confirms };
-
   const mergedTreeData = useMemo(() => {
-    const merged = [...(treeProps?.treeData || treeData)];
+    const merged = [...(treeProps?.treeData || stateTreeData)];
     walkTreeNodeData(merged, null, (item, _index, _arr, nodePath) => {
       item.key = item.key || nodePath;
     });
     return merged;
-  }, [treeProps?.treeData, treeData]);
+  }, [treeProps?.treeData, stateTreeData]);
 
   const commonPopconfirmProps: Partial<PopconfirmProps> = {
     icon: null,
@@ -126,7 +127,7 @@ export default function EditableTree(props: EditableTreeProps) {
         </Popconfirm>
       </div>
 
-      {treeData?.length ? (
+      {mergedTreeData?.length ? (
         <Tree
           {...treeProps}
           className={cs(prefixCls, treeProps.className)}
