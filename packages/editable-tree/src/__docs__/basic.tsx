@@ -15,9 +15,11 @@ const INITIAL_TREE_DATA: EditableTreeProps['treeData'] = [
         children: [
           {
             title: '1.x',
+            editable: { delete: true },
           },
           {
             title: '2.x',
+            editable: { delete: true },
           },
         ],
       },
@@ -33,9 +35,11 @@ const INITIAL_TREE_DATA: EditableTreeProps['treeData'] = [
         children: [
           {
             title: 'Button',
+            editable: { delete: true },
           },
           {
             title: 'Tag',
+            editable: { delete: true },
           },
         ],
       },
@@ -45,9 +49,11 @@ const INITIAL_TREE_DATA: EditableTreeProps['treeData'] = [
         children: [
           {
             title: 'Input',
+            editable: { delete: true },
           },
           {
             title: 'InputNumber',
+            editable: { delete: true },
           },
         ],
       },

@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import cs from 'classnames';
+import { nanoid } from 'nanoid';
 import { IconEdit, IconPlus, IconMinus, IconDelete } from '@arco-design/web-react/icon';
 import {
   Tree,
@@ -76,8 +77,8 @@ export default function EditableTree(props: EditableTreeProps) {
   const mergedConfirmTexts = { ...DEFAULT_CONFIRM_TEXTS, ...confirms };
   const mergedTreeData = useMemo(() => {
     const merged = [...(treeProps?.treeData || stateTreeData)];
-    walkTreeNodeData(merged, null, (item, _index, _arr, nodePath) => {
-      item.key = item.key || nodePath;
+    walkTreeNodeData(merged, null, (item) => {
+      item.key = item.key || nanoid();
     });
     return merged;
   }, [treeProps?.treeData, stateTreeData]);
@@ -102,7 +103,7 @@ export default function EditableTree(props: EditableTreeProps) {
               ...mergedTreeData,
               {
                 title: addingNodeTitle,
-                key: `${mergedTreeData.length}`,
+                key: nanoid(),
                 editable: true,
                 children: [],
               },
@@ -180,7 +181,7 @@ export default function EditableTree(props: EditableTreeProps) {
                         item.children ||= [];
                         item.children.push({
                           title: addingNodeTitle,
-                          key: `${node._key}-${item.children.length}`,
+                          key: nanoid(),
                           editable: true,
                           children: [],
                         });
