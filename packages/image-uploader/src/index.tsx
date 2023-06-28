@@ -20,6 +20,7 @@ function ImageUploader(props: ImageUploaderProps, ref) {
     aspectRatio,
     fileList: propFileList,
     extraCropperContent,
+    cropperTitle,
     onCrop,
     cropperProps,
     modalProps,
@@ -69,12 +70,16 @@ function ImageUploader(props: ImageUploaderProps, ref) {
     }
   }, [modalVisible]);
 
-  useImperativeHandle<unknown, ImageUploaderHandle>(ref, () => {
-    return {
-      upload: refUpload.current,
-      getCroppedImage: () => refCropper.current?.getCroppedImage(),
-    };
-  }, []);
+  useImperativeHandle<unknown, ImageUploaderHandle>(
+    ref,
+    () => {
+      return {
+        upload: refUpload.current,
+        getCroppedImage: () => refCropper.current?.getCroppedImage(),
+      };
+    },
+    []
+  );
 
   const updateCroppingImage = (croppedDataURL: string) => {
     if (croppedDataURL) {
@@ -119,6 +124,7 @@ function ImageUploader(props: ImageUploaderProps, ref) {
         {imagesToCrop.length ? (
           <>
             <div className={`${prefixCls}-modal-cropper-main`}>
+              {cropperTitle}
               {imagesToCrop.length > 1 ? (
                 <ol className={`${prefixCls}-indicator`}>
                   {imagesToCrop.map(({ croppedDataURL }, index) => (
@@ -137,7 +143,6 @@ function ImageUploader(props: ImageUploaderProps, ref) {
                   ))}
                 </ol>
               ) : null}
-
               <Cropper
                 ref={refCropper}
                 prefixCls={prefixCls}

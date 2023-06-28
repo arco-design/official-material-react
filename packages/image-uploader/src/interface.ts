@@ -71,6 +71,12 @@ export interface ImageUploaderProps extends UploadProps {
    */
   quality?: number;
   /**
+   * @zh 图片裁剪标题
+   * @en Title of cropper
+   * @version 1.1.0
+   */
+  cropperTitle?: ReactNode;
+  /**
    * @zh 裁剪框旁边的附加内容
    * @en Content on the side of cropper box
    */
