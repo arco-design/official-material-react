@@ -39,12 +39,31 @@ export interface EditableTreeProps extends Partial<TreeProps> {
    * @en Text for confirm
    */
   confirms?: {
-    editNode?: ReactNode;
-    insertNode?: ReactNode;
-    insertRootNode?: ReactNode;
-    deleteNode?: ReactNode;
-    deleteAll?: ReactNode;
+    editNode?: string;
+    insertNode?: string;
+    insertRootNode?: string;
+    deleteAll?: string;
   };
+
+  /**
+   * @zh 自定义图标
+   * @en Customize icons
+   * @version 1.3.0
+   */
+  editableTreeIcons?: {
+    edit?: ReactNode;
+    insert?: ReactNode;
+    delete?: ReactNode;
+    headerInsert?: ReactNode;
+    headerClear?: ReactNode;
+  };
+
+  /**
+   * @zh 自定义标题区域渲染
+   * @en Customize header render
+   * @version 1.3.0
+   */
+  renderHeader?: (nodes: { insert: ReactNode; clear: ReactNode }) => ReactNode;
 
   /**
    * @zh 树数据改变时的回调

@@ -3,6 +3,20 @@
 .@{editable-tree-prefix-cls} {
   padding: 6px 8px;
 
+  .arco-tree-node:hover {
+    .arco-tree-node-title {
+      background: var(--color-fill-2);
+    }
+
+    .arco-tree-node-drag-icon {
+      opacity: 1;
+    }
+
+    .@{editable-tree-prefix-cls}-node-icon-group {
+      display: block;
+    }
+  }
+
   &-header {
     display: flex;
     align-items: center;
@@ -17,6 +31,7 @@
   }
 
   &-node-icon-group {
+    display: none;
     position: absolute;
     right: 32px;
     top: 50%;
@@ -25,11 +40,19 @@
     > * {
       margin-left: 8px;
     }
+
+    .arco-icon-delete:hover {
+      color: rgb(var(--danger-6));
+    }
   }
 
-  &-node-edit-confirm {
-    .arco-popconfirm-inner-content {
-      padding-left: 0;
+  &-node-edit-popover {
+    .arco-popover-inner-content {
+      display: flex;
+
+      > *:not(:first-child) {
+        margin-left: 4px;
+      }
     }
   }
 
