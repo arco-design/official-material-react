@@ -43,6 +43,7 @@ export interface EditableTreeProps extends Partial<TreeProps> {
     insertNode?: string;
     insertRootNode?: string;
     deleteAll?: string;
+    cancel?: string;
   };
 
   /**

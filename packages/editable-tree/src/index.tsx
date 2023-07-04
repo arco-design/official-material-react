@@ -31,7 +31,20 @@ const DEFAULT_CONFIRM_TEXTS: EditableTreeProps['confirms'] = {
   insertNode: 'Insert a new node',
   insertRootNode: 'Insert a new root node',
   deleteAll: 'Are you sure to delete all these tree nodes?',
+  cancel: 'Cancel',
 };
+
+type PopupInputProps = PropsWithChildren<
+  {
+    placeholder?: string;
+    value?: string;
+    defaultValue?: string;
+    inputProps?: Partial<InputProps>;
+    texts?: { cancel?: string };
+    onChange?: (value: string) => void;
+    onOK?: (value: string) => void;
+  } & PopoverProps
+>;
 
 function walkTreeNodeData(
   data: EditableTreeDataType[],
@@ -61,23 +74,13 @@ function walkTreeNodeData(
   });
 }
 
-function PopupInput(
-  props: PropsWithChildren<
-    {
-      placeholder?: string;
-      value?: string;
-      defaultValue?: string;
-      inputProps?: Partial<InputProps>;
-      onChange?: (value: string) => void;
-      onOK?: (value: string) => void;
-    } & PopoverProps
-  >
-) {
+function PopupInput(props: PopupInputProps) {
   const {
     placeholder,
     inputProps,
     value: propValue,
     defaultValue,
+    texts,
     onChange,
     onOK,
     ...popoverProps
@@ -134,7 +137,7 @@ function PopupInput(
               }
             }}
           />
-          <Button onClick={() => triggerCancel()}>Cancel</Button>
+          <Button onClick={() => triggerCancel()}>{texts.cancel}</Button>
         </>
       }
       {...popoverProps}
@@ -172,8 +175,11 @@ export default function EditableTree(props: EditableTreeProps) {
     return merged;
   }, [treeProps?.treeData, stateTreeData]);
 
-  const commonPopoverProps: Partial<PopoverProps> = {
+  const commonPopoverProps: Partial<PopupInputProps> = {
     className: `${prefixCls}-node-edit-popover`,
+    texts: {
+      cancel: confirms.cancel,
+    },
   };
 
   const mergedIcons: EditableTreeProps['editableTreeIcons'] = {
