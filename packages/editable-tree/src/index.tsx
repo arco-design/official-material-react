@@ -14,9 +14,10 @@ import {
   PopoverProps,
   Button,
 } from '@arco-design/web-react';
-
 import { RefInputType } from '@arco-design/web-react/es/Input/interface';
 import type { EditableTreeDataType, EditableTreeProps } from './interface';
+
+import IconEnterKey from './assets/enter-key.svg';
 
 const DEFAULT_TIPS: EditableTreeProps['tips'] = {
   editNode: 'Edit title',
@@ -120,7 +121,7 @@ function PopupInput(props: PopupInputProps) {
             ref={refInput}
             placeholder={placeholder}
             value={value}
-            suffix="⏎"
+            suffix={<IconEnterKey />}
             {...inputProps}
             onChange={(nextValue, ...args) => {
               setStateValue(nextValue);
@@ -178,7 +179,7 @@ export default function EditableTree(props: EditableTreeProps) {
   const commonPopoverProps: Partial<PopupInputProps> = {
     className: `${prefixCls}-node-edit-popover`,
     texts: {
-      cancel: confirms.cancel,
+      cancel: mergedConfirmTexts.cancel,
     },
   };
 
@@ -265,6 +266,7 @@ export default function EditableTree(props: EditableTreeProps) {
                     placeholder={mergedConfirmTexts.editNode}
                     onVisibleChange={(visible) => {
                       setEditingNodeKey(visible ? node._key : null);
+                      commonPopoverProps?.onVisibleChange?.(visible);
                     }}
                     onOK={(value) => {
                       const nextTreeData = [...mergedTreeData];
