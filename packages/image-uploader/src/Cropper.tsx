@@ -80,6 +80,27 @@ function Cropper(props: CropperProps, ref) {
     []
   );
 
+  const renderScaleBar = () => {
+    const step = 0.1;
+    const min = 0.1;
+    const max = 4;
+
+    return (
+      <div className={`${prefixCls}-operation-scale`}>
+        <IconMinus onClick={() => setScale(Math.max(min, scale - step))} />
+        <Slider
+          step={step}
+          min={min}
+          max={max}
+          value={scale}
+          formatTooltip={(scale) => `${~~(scale * 100)}%`}
+          onChange={(value: number) => setScale(value)}
+        />
+        <IconPlus onClick={() => setScale(Math.min(max, scale + step))} />
+      </div>
+    );
+  };
+
   return (
     <div className={prefixCls}>
       <ReactCropper
@@ -105,20 +126,7 @@ function Cropper(props: CropperProps, ref) {
             setRotation(0);
           }}
         />
-        {needScale && (
-          <div className={`${prefixCls}-operation-scale`}>
-            <IconMinus />
-            <Slider
-              step={0.1}
-              min={0.1}
-              max={4}
-              value={scale}
-              formatTooltip={(scale) => `${~~(scale * 100)}%`}
-              onChange={(value: number) => setScale(value)}
-            />
-            <IconPlus />
-          </div>
-        )}
+        {needScale && renderScaleBar()}
         {rotate && (
           <IconRotateRight
             className={`${prefixCls}-operation-rotate`}
