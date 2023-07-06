@@ -23,6 +23,12 @@ export interface EditableTreeProps extends Partial<TreeProps> {
   treeData?: EditableTreeDataType[];
 
   /**
+   * @zh 是否允许编辑
+   * @en Weather this tree is editable
+   */
+  editable?: boolean;
+
+  /**
    * @zh 提示文本
    * @en Tip texts
    */
@@ -78,3 +84,10 @@ export interface EditableTreeProps extends Partial<TreeProps> {
    */
   onNodeDelete?: (node: NodeProps) => void;
 }
+
+/**
+ * @title EditableTreeHandle
+ */
+export type EditableTreeHandle = {
+  expandAll: (treeData?: TreeProps['treeData']) => void;
+};

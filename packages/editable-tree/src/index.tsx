@@ -1,4 +1,11 @@
-import React, { PropsWithChildren, useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  PropsWithChildren,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import cs from 'classnames';
 import { nanoid } from 'nanoid';
 import { IconEdit, IconPlus, IconDelete } from '@arco-design/web-react/icon';
@@ -15,7 +22,7 @@ import {
   Button,
 } from '@arco-design/web-react';
 import { RefInputType } from '@arco-design/web-react/es/Input/interface';
-import type { EditableTreeDataType, EditableTreeProps } from './interface';
+import type { EditableTreeDataType, EditableTreeHandle, EditableTreeProps } from './interface';
 
 import IconEnterKey from './assets/enter-key.svg';
 
@@ -150,10 +157,21 @@ function PopupInput(props: PopupInputProps) {
   );
 }
 
-export default function EditableTree(props: EditableTreeProps) {
+export default React.forwardRef<unknown, EditableTreeProps>(function EditableTree(
+  props: EditableTreeProps,
+  ref
+) {
   const prefixCls = 'am-editable-tree';
-  const { tips, confirms, editableTreeIcons, renderHeader, onChange, onNodeDelete, ...treeProps } =
-    props;
+  const {
+    editable: treeEditable,
+    tips,
+    confirms,
+    editableTreeIcons,
+    renderHeader,
+    onChange,
+    onNodeDelete,
+    ...treeProps
+  } = props;
 
   const [stateTreeData, setStateTreeData] = useState<TreeProps['treeData']>(
     treeProps.treeData || []
@@ -165,6 +183,31 @@ export default function EditableTree(props: EditableTreeProps) {
     setStateTreeData(nextTreeData);
     onChange?.(nextTreeData);
   };
+
+  useImperativeHandle<unknown, EditableTreeHandle>(
+    ref,
+    () => {
+      return {
+        expandAll: (data = treeProps.treeData) => {
+          const keys: string[] = [];
+          const walkTreeNodes = (data: EditableTreeProps['treeData']) => {
+            if (Array.isArray(data)) {
+              for (const node of data) {
+                keys.push(node.key);
+                if (Array.isArray(node.children)) {
+                  walkTreeNodes(node.children);
+                }
+              }
+            }
+          };
+
+          walkTreeNodes(data);
+          setExpandKeys(keys);
+        },
+      };
+    },
+    [treeProps.treeData]
+  );
 
   const mergedTips = { ...DEFAULT_TIPS, ...tips };
   const mergedConfirmTexts = { ...DEFAULT_CONFIRM_TEXTS, ...confirms };
@@ -193,7 +236,7 @@ export default function EditableTree(props: EditableTreeProps) {
   };
 
   const mergedRenderHeader = () => {
-    const eleIconInsert = (
+    const eleIconInsert = treeEditable ? (
       <PopupInput
         {...commonPopoverProps}
         placeholder={mergedConfirmTexts.insertRootNode}
@@ -212,9 +255,9 @@ export default function EditableTree(props: EditableTreeProps) {
       >
         <Tooltip content={mergedTips.insertRootNode}>{mergedIcons.headerInsert}</Tooltip>
       </PopupInput>
-    );
+    ) : null;
 
-    const eleIconClear = (
+    const eleIconClear = treeEditable ? (
       <Popconfirm
         icon={null}
         title={mergedConfirmTexts.deleteAll}
@@ -222,7 +265,7 @@ export default function EditableTree(props: EditableTreeProps) {
       >
         <Tooltip content={mergedTips.deleteAll}>{mergedIcons.headerClear}</Tooltip>
       </Popconfirm>
-    );
+    ) : null;
 
     if (typeof renderHeader === 'function') {
       return renderHeader({ insert: eleIconInsert, clear: eleIconClear });
@@ -248,6 +291,10 @@ export default function EditableTree(props: EditableTreeProps) {
           className={cs(prefixCls, treeProps.className)}
           treeData={mergedTreeData}
           renderExtra={(_node) => {
+            if (!treeEditable) {
+              return null;
+            }
+
             const node = _node as EditableTreeDataType;
             const eleExtraFromProps = treeProps?.renderExtra?.(node);
             const editable = node.editable;
@@ -380,6 +427,6 @@ export default function EditableTree(props: EditableTreeProps) {
       )}
     </div>
   );
-}
+});
 
 export type { EditableTreeProps, EditableTreeDataType };
