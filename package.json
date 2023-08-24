@@ -22,7 +22,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@arco-cli/arco": "^2.0.0-beta.1",
+    "@arco-cli/arco": "^2.0.0-beta.9",
     "@arco-plugins/webpack-react": "^1.4.9-beta.2",
     "@testing-library/dom": "^8.19.1",
     "@testing-library/jest-dom": "^5.16.5",

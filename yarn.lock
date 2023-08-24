@@ -42,30 +42,30 @@
     tslib "^2.3.0"
     zen-observable-ts "^1.2.5"
 
-"@arco-cli/arco@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@arco-cli/arco/-/arco-2.0.0-beta.1.tgz#2547b146f2570cc8afcb1048dc3fe7d7251fee1c"
-  integrity sha512-g2mM+WXbc+Pq6u9QSmYSCDxINsuJmCC6M+lPYMYt9/7PnA/2crwDy+YeKuH8Xcf8DFBRztF84N6kWyRbhMwIYw==
+"@arco-cli/arco@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@arco-cli/arco/-/arco-2.0.0-beta.9.tgz#3690fd9d26e67f09b0cabded6500e59425041db8"
+  integrity sha512-2meJ/BXcgcsoMeXWB5O4U3b6RuUu2zKSPVTS6LzoRLe1YkpOgpX2A2QiZNqtIURqC18VxQm2aWazpO5xo36Jow==
   dependencies:
-    "@arco-cli/aspect" "^2.0.0-beta.1"
-    "@arco-cli/core" "^2.0.0-beta.0"
-    "@arco-cli/legacy" "^2.0.0-beta.0"
-    "@arco-cli/react" "^2.0.0-beta.1"
-    "@arco-cli/service" "^2.0.0-beta.1"
+    "@arco-cli/aspect" "^2.0.0-beta.9"
+    "@arco-cli/core" "^2.0.0-beta.2"
+    "@arco-cli/legacy" "^2.0.0-beta.2"
+    "@arco-cli/react" "^2.0.0-beta.9"
+    "@arco-cli/service" "^2.0.0-beta.9"
     "@arco-cli/stone" "^2.0.0-beta.0"
     fs-extra "^10.1.0"
 
-"@arco-cli/aspect@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@arco-cli/aspect/-/aspect-2.0.0-beta.1.tgz#52f58996e3e0a5477a94ce1e3a558a37fa588172"
-  integrity sha512-4Xs4ZERhEErKkolJ51UXznYnoX9sNWfaoKuoWBgrVpoCbWpPKSM9Q9O4ms0Ueda2ypOdK+DCeulZW/rfcMy6Yw==
+"@arco-cli/aspect@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@arco-cli/aspect/-/aspect-2.0.0-beta.9.tgz#eff9f16d4b759346d6cfcd642646871c9b00df34"
+  integrity sha512-mKbr7uW3b7EeDkusVKbo6zBjAB4RonImRrcN7b4hVRTbKkyDeTv7OLNZOIZSMvKmEsOb6JrhJrzLTtzaxVKZIg==
   dependencies:
     "@apollo/client" "^3.7.2"
-    "@arco-cli/core" "^2.0.0-beta.0"
-    "@arco-cli/legacy" "^2.0.0-beta.0"
-    "@arco-cli/service" "^2.0.0-beta.1"
+    "@arco-cli/core" "^2.0.0-beta.2"
+    "@arco-cli/legacy" "^2.0.0-beta.2"
+    "@arco-cli/service" "^2.0.0-beta.9"
     "@arco-cli/stone" "^2.0.0-beta.0"
-    "@arco-cli/ui-foundation-react" "^2.0.0-beta.1"
+    "@arco-cli/ui-foundation-react" "^2.0.0-beta.9"
     "@arco-design/web-react" "^2.42.2"
     "@babel/runtime" "^7.20.6"
     "@jest/test-result" "^29.5.0"
@@ -100,6 +100,7 @@
     process "^0.11.10"
     punycode "^2.1.1"
     querystring-es3 "^0.2.1"
+    react "~17"
     react-dev-utils "^12.0.1"
     remark-admonitions "^1.2.1"
     remark-frontmatter "^2.0.0"
@@ -125,12 +126,12 @@
     webpack-merge "^5.8.0"
     yaml "^1.10.2"
 
-"@arco-cli/core@^2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@arco-cli/core/-/core-2.0.0-beta.0.tgz#509e71d944bfba9304373982ef9e35ceec48cdc6"
-  integrity sha512-uO2teAWCqU7je5hc0rN5TAatfMR8srudMHNoBa7wg33r7wWTMMN+wCCcWVvNib5PvIibThNZ5K7cqso2cxfFvA==
+"@arco-cli/core@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@arco-cli/core/-/core-2.0.0-beta.2.tgz#10880015eaa30b4ce4a7ae928e5867e7fb7bd55e"
+  integrity sha512-w5Kxh3WeLLVV96kZUXqllrOK00gT//3+MlQ23QAY//k5U9jPeuIBMPQm88ZkaWWbD7IUu5xaJm4srBk5n9T2Rg==
   dependencies:
-    "@arco-cli/legacy" "^2.0.0-beta.0"
+    "@arco-cli/legacy" "^2.0.0-beta.2"
     "@arco-cli/stone" "^2.0.0-beta.0"
     "@babel/runtime" "^7.20.6"
     "@graphql-modules/core" "^0.7.17"
@@ -152,10 +153,10 @@
     react "~17"
     yargs "^17.6.2"
 
-"@arco-cli/generator@^2.0.0-beta.2":
-  version "2.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@arco-cli/generator/-/generator-2.0.0-beta.2.tgz#a1bbf3f39373e598c7950978e1accad9970fc6f7"
-  integrity sha512-osQkPWSdxPm4tXoLUlegJpgnhlIqEdhyMWTI657IhNbZEqrV6D2kzJWqg/xlyglyoL/5tTsu7AnADThRyQChUA==
+"@arco-cli/generator@^2.0.0-beta.4":
+  version "2.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@arco-cli/generator/-/generator-2.0.0-beta.4.tgz#5920b22d4c20ec7cf63721838f99d69792a27903"
+  integrity sha512-T2jNLOD66kyvy+kBC5+w9xlMimaO6Clz7WbOKlcwMKqOAEpeprlp4jJDVNB8OMb6+SoTH7tuW8PSZxlGfDnxZQ==
   dependencies:
     "@babel/runtime" "^7.20.6"
     chalk "^4.1.2"
@@ -169,10 +170,10 @@
     through2 "^4.0.2"
     yargs "^17.6.2"
 
-"@arco-cli/legacy@^2.0.0-beta.0":
-  version "2.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@arco-cli/legacy/-/legacy-2.0.0-beta.0.tgz#445652d8a41844ba7b8f47df1fd8d211a130ceac"
-  integrity sha512-EFNUd6i7qnD4ge05yBCnGyQSJ2JDKBZAf0xvvYwKwARxtPe0bfLg6qlmpPn1FJ2O8195LSsjyik5hS1l4kEiDg==
+"@arco-cli/legacy@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@arco-cli/legacy/-/legacy-2.0.0-beta.2.tgz#084f54c4881ec06e0a0b4f7c33415ebb47ca99a9"
+  integrity sha512-OqcsC6Y2KjKgcuUZ2QHSJAsEUaKsW868V+xW1C0QCTMvG5fsYB5GzkJHwm0o7DBjask6H2AlnFBx8/P7Uql9HA==
   dependencies:
     archiver "^5.3.1"
     axios "^1.2.2"
@@ -206,17 +207,17 @@
     vinyl-file "^3.0.0"
     yn "^4.0.0"
 
-"@arco-cli/react@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@arco-cli/react/-/react-2.0.0-beta.1.tgz#df0c91cd2d97a667bb601c4301510ec93ad9cfbb"
-  integrity sha512-0jpgTdYu+NZFwpd9+Udw8nQZvrdMI3RM3KOqm7hf/QLGx57fMyeb9aYa3VWpAkSmT4RkgHW2gnjPKxV8CixFTQ==
+"@arco-cli/react@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@arco-cli/react/-/react-2.0.0-beta.9.tgz#fad0bda25856fdd8e3b3dc560270922548d9dc28"
+  integrity sha512-JYgg7GxxKXeUKbfniSVtveLpnzmbkZOF8t5rw66zLO8ghPo0bzMn+qNwyq1pbX/b70w3YvNmwwRwiLZGe6mzfA==
   dependencies:
-    "@arco-cli/aspect" "^2.0.0-beta.1"
-    "@arco-cli/core" "^2.0.0-beta.0"
-    "@arco-cli/legacy" "^2.0.0-beta.0"
-    "@arco-cli/service" "^2.0.0-beta.1"
+    "@arco-cli/aspect" "^2.0.0-beta.9"
+    "@arco-cli/core" "^2.0.0-beta.2"
+    "@arco-cli/legacy" "^2.0.0-beta.2"
+    "@arco-cli/service" "^2.0.0-beta.9"
     "@arco-cli/stone" "^2.0.0-beta.0"
-    "@arco-cli/ui-foundation-react" "^2.0.0-beta.1"
+    "@arco-cli/ui-foundation-react" "^2.0.0-beta.9"
     "@babel/core" "^7.20.5"
     "@babel/plugin-proposal-class-properties" "^7.18.6"
     "@babel/plugin-proposal-decorators" "^7.20.5"
@@ -262,17 +263,18 @@
     webpack "^5.75.0"
     webpack-bundle-analyzer "^4.8.0"
 
-"@arco-cli/service@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@arco-cli/service/-/service-2.0.0-beta.1.tgz#b8d8d5ff774f5737aec9a09e2e35847e851d97d1"
-  integrity sha512-xn6c7IsCG6d2a6CDE5GzI21XLl0dfOePuQLRzGHlzVZJBW0YWi7xOPbU2XpV6iT+tbaquOvhYOb73SMDuO6V/A==
+"@arco-cli/service@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@arco-cli/service/-/service-2.0.0-beta.9.tgz#9b05e56116823a0489136e5109dddb09daddffe1"
+  integrity sha512-rolduQAcDypqvrjYlQwBQmnW7DMXJVJEKwwjDlKmxAJeoaANwtQFDdV8paHr9SyHR7tBHzDD8dLDZvzBgVN3/w==
   dependencies:
-    "@arco-cli/aspect" "^2.0.0-beta.1"
-    "@arco-cli/core" "^2.0.0-beta.0"
-    "@arco-cli/generator" "^2.0.0-beta.2"
-    "@arco-cli/legacy" "^2.0.0-beta.0"
+    "@arco-cli/aspect" "^2.0.0-beta.9"
+    "@arco-cli/core" "^2.0.0-beta.2"
+    "@arco-cli/generator" "^2.0.0-beta.4"
+    "@arco-cli/legacy" "^2.0.0-beta.2"
     "@arco-cli/stone" "^2.0.0-beta.0"
-    "@arco-cli/ui-foundation-react" "^2.0.0-beta.1"
+    "@arco-cli/ui-foundation-react" "^2.0.0-beta.9"
+    "@arco-cli/workspace-materials" "^0.4.0"
     "@babel/runtime" "^7.20.6"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.10"
     "@svgr/webpack" "^6.5.1"
@@ -312,13 +314,13 @@
     comment-json "^4.2.3"
     fs-extra "^10.1.0"
 
-"@arco-cli/ui-foundation-react@^2.0.0-beta.1":
-  version "2.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@arco-cli/ui-foundation-react/-/ui-foundation-react-2.0.0-beta.1.tgz#6fa54a0e573a24dd29f006c79b80fcc3169e05f6"
-  integrity sha512-hI2uSGi1FSHnDbgehX4+LL4Ev9cBuIKCADlSWFVAEMxM3Z0QPtDeua5/CrEojIBd714nhzQPPktFWcS5fZM3tg==
+"@arco-cli/ui-foundation-react@^2.0.0-beta.9":
+  version "2.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@arco-cli/ui-foundation-react/-/ui-foundation-react-2.0.0-beta.9.tgz#0b5082f560a32c160bb199157ce757a56075ba98"
+  integrity sha512-P6z7Omt+J5fAmWAokbCW0sr2W920AC67bCp63HWT4G8aztuTH1APpL6czny+HHwVhJ/Bcp820Neo/86FEg+Dvg==
   dependencies:
     "@apollo/client" "^3.7.2"
-    "@arco-cli/aspect" "^2.0.0-beta.1"
+    "@arco-cli/aspect" "^2.0.0-beta.9"
     "@arco-design/web-react" "^2.42.2"
     "@babel/runtime" "^7.20.6"
     "@mdx-js/react" "^1.6.22"
@@ -330,6 +332,15 @@
     react-syntax-highlighter "^15.5.0"
     remark-gfm "^3.0.1"
     uuid "^9.0.0"
+
+"@arco-cli/workspace-materials@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@arco-cli/workspace-materials/-/workspace-materials-0.4.0.tgz#556490dc217603cffe055f7e321f6c3079175110"
+  integrity sha512-cJalEl725Vtn7/36zBz3OfkASKQfMG9SXvVs9nJSOesEwmEgFR2mwj/fkqgUFR0oL7r6fC58W8cLRCAKE8TLTA==
+  dependencies:
+    classnames "^2.3.2"
+    lodash-es "^4.17.21"
+    penpal "^6.2.2"
 
 "@arco-design/color@^0.4.0":
   version "0.4.0"

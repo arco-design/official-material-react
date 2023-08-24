@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider, Dropdown, Menu } from '@arco-design/web-react';
-import type { ItemType, ContextMenuProps } from './inferface';
+import type { ItemType, ContextMenuProps } from './interface';
 
 const PREFIX_CLS = 'am-context-menu';
 
